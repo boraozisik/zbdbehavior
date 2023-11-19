@@ -7,6 +7,7 @@ import CelebrationOutlinedIcon from "@mui/icons-material/CelebrationOutlined";
 import ConnectWithoutContactOutlinedIcon from "@mui/icons-material/ConnectWithoutContactOutlined";
 import RouteOutlinedIcon from "@mui/icons-material/RouteOutlined";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
+import { primary } from "../theme/themeColors";
 
 type Props = {};
 
@@ -87,7 +88,7 @@ const AppNavbar = (props: Props) => {
           <button className="-m-1.5 p-1.5">
             <img
               className="h-12 w-auto"
-              src="/static/logos/boraozisik-header-logo.png"
+              src="/static/logos/zbdbehavior-logo.png"
               alt=""
             />
           </button>
@@ -116,7 +117,7 @@ const AppNavbar = (props: Props) => {
                 className="text-sm font-medium flex items-center gap-x-1 leading-6 text-[#8cbeef] focus:outline-none"
                 onClick={() => setIsShowing((isShowing) => !isShowing)}
               >
-                <span className="text-blue-400">ZbdBehavior</span>
+                <span style={{ color: primary.main }}>ZbdBehavior</span>
                 <span className="ml-1">
                   {isShowing ? (
                     <ChevronUpIcon
