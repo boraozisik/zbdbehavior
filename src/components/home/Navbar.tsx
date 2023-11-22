@@ -1,13 +1,13 @@
-import React, { useState, useEffect, Fragment } from "react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { ClickAwayListener, Stack } from "@mui/material";
 import { Dialog, Transition } from "@headlessui/react";
+import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import AutoStoriesOutlinedIcon from "@mui/icons-material/AutoStoriesOutlined";
 import CelebrationOutlinedIcon from "@mui/icons-material/CelebrationOutlined";
 import ConnectWithoutContactOutlinedIcon from "@mui/icons-material/ConnectWithoutContactOutlined";
 import RouteOutlinedIcon from "@mui/icons-material/RouteOutlined";
-import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
-import { primary } from "../theme/themeColors";
+import { ClickAwayListener } from "@mui/material";
+import { Fragment, useEffect, useState } from "react";
+import { primary } from "../../theme/themeColors";
 
 type Props = {};
 
@@ -105,7 +105,7 @@ const AppNavbar = (props: Props) => {
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
           <button
-            className="text-sm font-medium leading-6 text-blue-400 hover:text-[#fde047]"
+            className="text-sm font-inter leading-6 text-blue-400 hover:text-[#fde047]"
             style={{ cursor: "pointer" }}
           >
             ZbdBehavior
@@ -114,7 +114,7 @@ const AppNavbar = (props: Props) => {
           <ClickAwayListener onClickAway={() => setIsShowing(false)}>
             <div className="relative text-center">
               <button
-                className="text-sm font-medium flex items-center gap-x-1 leading-6 text-[#8cbeef] focus:outline-none"
+                className="text-sm font-inter flex items-center gap-x-1 leading-6 text-[#8cbeef] focus:outline-none"
                 onClick={() => setIsShowing((isShowing) => !isShowing)}
               >
                 <span style={{ color: primary.main }}>ZbdBehavior</span>
@@ -158,7 +158,7 @@ const AppNavbar = (props: Props) => {
                           />
                         </div>
                         <div className="flex-1">
-                          <p className="font-medium text-gray-900">
+                          <p className="font-inter text-gray-900">
                             {item.name}
                           </p>
                           <p className="mt-1 text-gray-600">
@@ -174,7 +174,7 @@ const AppNavbar = (props: Props) => {
           </ClickAwayListener>
 
           <button
-            className="text-sm font-medium leading-6 text-blue-400 hover:text-[#fde047] "
+            className="text-sm font-inter leading-6 text-blue-400 hover:text-[#fde047] "
             // onClick={() => router.push("/work")}
           >
             ZbdBehavior
@@ -212,41 +212,41 @@ const AppNavbar = (props: Props) => {
                 <button
                   style={{ cursor: "pointer" }}
                   //   onClick={() => handleClickMobileMenuItem("/")}
-                  className="-mx-3 block rounded-lg py-2 px-3 text-base font-medium leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg py-2 px-3 text-base font-inter leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   ZbdBehavior
                 </button>
                 <button
                   style={{ cursor: "pointer" }}
                   //   onClick={() => handleClickAboutUs("", true)}
-                  className="-mx-3 block rounded-lg py-2 px-3 text-base font-medium leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg py-2 px-3 text-base font-inter leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   ZbdBehavior
                 </button>
                 <button
                   style={{ cursor: "pointer" }}
                   //   onClick={() => handleClickAboutUs("timeline", true)}
-                  className="-mx-3 block rounded-lg py-2 px-3 text-base font-medium leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg py-2 px-3 text-base font-inter leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   ZbdBehavior
                 </button>
                 <button
                   style={{ cursor: "pointer" }}
                   //   onClick={() => handleClickAboutUs("passions", true)}
-                  className="-mx-3 block rounded-lg py-2 px-3 text-base font-medium leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg py-2 px-3 text-base font-inter leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   ZbdBehavior
                 </button>
                 <button
                   style={{ cursor: "pointer" }}
                   //   onClick={() => handleClickAboutUs("contact", true)}
-                  className="-mx-3 block rounded-lg py-2 px-3 text-base font-medium leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg py-2 px-3 text-base font-inter leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   ZbdBehavior
                 </button>
                 <button
                   //   onClick={() => handleClickMobileMenuItem("/work")}
-                  className="-mx-3 block rounded-lg py-2 px-3 text-base font-medium leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg py-2 px-3 text-base font-inter leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   ZbdBehavior
                 </button>

@@ -11,6 +11,8 @@ export const primary = {
   300: alpha(primaryMain, 0.3),
   400: alpha(primaryMain, 0.4),
   500: alpha(primaryMain, 0.5),
+  700: alpha(primaryMain, 0.7),
+  800: alpha(primaryMain, 0.8),
 };
 
 const secondaryMain = "#FF6C90";
