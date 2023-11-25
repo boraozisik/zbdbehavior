@@ -1,12 +1,17 @@
 import React from "react";
 import { primary } from "../../theme/themeColors";
+import { useNavigate } from "react-router-dom";
 
 type Props = {};
 
 const Timeline = (props: Props) => {
+  const navigate = useNavigate();
+
+  const handleClickExplore = () => {
+    navigate("/deneme");
+  };
   return (
     <section>
-      <a href="#timeline" id={"timeline"}></a>
       <div className="text-gray-800 py-8">
         <div className="container mx-auto flex flex-col items-start md:flex-row my-12 md:my-24">
           <div className="flex flex-col w-full sticky md:top-36 lg:w-1/3 mt-2 md:mt-12 px-8">
@@ -24,7 +29,7 @@ const Timeline = (props: Props) => {
               to the top level. The path to success provided by ZbdBehavior
             </p>
             <button
-              //   onClick={() => router.push("/#brabout")}
+              onClick={handleClickExplore}
               className="italic font-medium bg-transparent mr-auto hover:bg-[#6C63FF] text-[#6C63FF]  hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-[#6C63FF] hover:border-transparent"
             >
               Explore Now
@@ -121,6 +126,7 @@ const Timeline = (props: Props) => {
                 </div>
               </div>
               <img
+                alt=""
                 className="mx-auto  w-[24rem] h-[24rem]"
                 src="/static/illustrations/launching-illustration-timeline.svg"
               />
