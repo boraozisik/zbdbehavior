@@ -32,17 +32,23 @@ const Operations = (props: Props) => {
           <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-16 md:grid-cols-2 xl:grid-cols-3">
             <div className="space-y-3">
               <span className="inline-block p-3  bg-gray-200 rounded-full">
-                <AcUnitIcon sx={{ color: primary.main }} />
+                <img
+                  src="/static/icons/excel-icon.png"
+                  alt=""
+                  style={{ width: "28px", height: "28px" }}
+                />
               </span>
 
               <h1 className="text-xl font-semibold capitalize text-gray-200 italic">
-                Copy & paste components
+                Potential Sales Excel
               </h1>
 
               <p className="text-gray-400 italic">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Provident ab nulla quod dignissimos vel non corrupti doloribus
-                voluptatum eveniet
+                This feature aims to predict future sales by examining the past
+                sales of any specified product. By doing so, you can anticipate
+                potential sales, adjust inventory accordingly, and effectively
+                manage your revenue. Simply uploading the Excel file containing
+                your historical sales data will be sufficient
               </p>
 
               <button
