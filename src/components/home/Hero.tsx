@@ -27,12 +27,12 @@ const Hero = (props: Props) => {
             <div className="flex">
               <button
                 type="button"
-                className="text-white bg-gradient-to-br from-purple-500 to-blue-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300  font-inter rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                className="text-white bg-gradient-to-br from-[#6C63FF] to-[#FF6C90] hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300  font-inter rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
               >
                 Explore Operations
               </button>
 
-              <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-inter text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white  focus:ring-4 focus:outline-none focus:ring-blue-300 ">
+              <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-inter text-gray-900 rounded-lg group bg-gradient-to-br from-[#6C63FF] to-[#FF6C90] group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white  focus:ring-4 focus:outline-none focus:ring-blue-300 ">
                 <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white  rounded-md group-hover:bg-opacity-0">
                   See Graphs
                 </span>
