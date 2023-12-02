@@ -1,9 +1,15 @@
 import AcUnitIcon from "@mui/icons-material/AcUnit";
 import { primary } from "../../theme/themeColors";
+import { useNavigate } from "react-router-dom";
 
 type Props = {};
 
 const Operations = (props: Props) => {
+  const navigate = useNavigate();
+
+  const handleClickPredictionExcel = () => {
+    navigate("/predictionexcel");
+  };
   return (
     <div className="bg-gray-800">
       <section>
@@ -52,6 +58,7 @@ const Operations = (props: Props) => {
               </p>
 
               <button
+                onClick={handleClickPredictionExcel}
                 className="inline-flex items-center -mx-1 text-sm capitalize transition-colors duration-300 transform  hover:underline"
                 style={{ color: primary.main }}
               >
