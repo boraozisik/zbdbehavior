@@ -1,6 +1,5 @@
-import React from "react";
-import { primary } from "../../theme/themeColors";
 import { useNavigate } from "react-router-dom";
+import { primary } from "../../theme/themeColors";
 
 type Props = {};
 

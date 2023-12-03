@@ -26,6 +26,9 @@ export const secondary = {
   200: alpha(secondaryMain, 0.2),
   300: alpha(secondaryMain, 0.3),
   400: alpha(secondaryMain, 0.4),
+  600: alpha(secondaryMain, 0.6),
+  700: alpha(secondaryMain, 0.7),
+  800: alpha(secondaryMain, 0.8),
 };
 
 export const error = {
@@ -47,4 +50,10 @@ export const warning = {
 export const info = {
   main: "#4169E1",
   dark: "#191970",
+};
+
+export const grey = {
+  main: "#9AA3AB",
+  dark: "#505254",
+  textBlack: "#25282B",
 };
