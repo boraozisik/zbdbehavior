@@ -16,6 +16,13 @@ import GetTemplate from "./GetTemplate";
 
 type Props = {};
 
+type ExcelTemplate = {
+  ID: string;
+  DATE: string;
+  PRODUCTNAME: string;
+  COUNT: number | null;
+};
+
 const ExcelForm = (props: Props) => {
   const [uploadLoading, setLoading] = React.useState(false);
   const [uploadSuccess, setSuccess] = React.useState(false);
@@ -38,7 +45,10 @@ const ExcelForm = (props: Props) => {
     }
   };
 
+  const uploadFile = async (e: any) => {};
+
   const selectFile = async (e: any) => {
+    let excelData: ExcelTemplate[] = [];
     const file = e.target.files[0];
     console.log("file", e.target.files[0]);
     const data = await file.arrayBuffer();
@@ -48,6 +58,7 @@ const ExcelForm = (props: Props) => {
       const worksheet = workbook.Sheets[worksheetName];
 
       const jsonData = XLSX.utils.sheet_to_json(worksheet);
+      excelData = jsonData as ExcelTemplate[];
       console.log("json data", jsonData);
     });
   };

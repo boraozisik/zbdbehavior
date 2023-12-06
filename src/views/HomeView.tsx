@@ -1,3 +1,4 @@
+import Footer from "../components/home/Footer";
 import Hero from "../components/home/Hero";
 import AppNavbar from "../components/home/Navbar";
 import Operations from "../components/home/Operations";
@@ -12,6 +13,7 @@ const HomeView = (props: Props) => {
       <Hero />
       <Operations />
       <Timeline />
+      <Footer />
     </>
   );
 };

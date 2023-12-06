@@ -18,25 +18,37 @@ const AppNavbar = (props: Props) => {
   const [isShowing, setIsShowing] = useState(false);
   const about = [
     {
-      name: "ZbdBehavior",
+      name: "Potential Sales Excel",
       description: "ZbdBehavior",
       // onClick: () => router.push("/ZbdBehavior"),
       icon: AutoStoriesOutlinedIcon,
     },
     {
-      name: "ZbdBehavior",
+      name: "Operation2",
       description: "ZbdBehavior",
       // onClick: () => router.push("/ZbdBehaviorr"),
       icon: RouteOutlinedIcon,
     },
     {
-      name: "ZbdBehavior",
+      name: "Operation3",
       description: "ZbdBehavior",
       // onClick: () => router.push("/ZbdBehavior"),
       icon: CelebrationOutlinedIcon,
     },
     {
-      name: "ZbdBehavior",
+      name: "Operation3",
+      description: "ZbdBehavior",
+      // onClick: () => router.push("/ZbdBehavior"),
+      icon: ConnectWithoutContactOutlinedIcon,
+    },
+    {
+      name: "Operation4",
+      description: "ZbdBehavior",
+      // onClick: () => router.push("/ZbdBehavior"),
+      icon: ConnectWithoutContactOutlinedIcon,
+    },
+    {
+      name: "Operation5",
       description: "ZbdBehavior",
       // onClick: () => router.push("/ZbdBehavior"),
       icon: ConnectWithoutContactOutlinedIcon,
@@ -105,10 +117,10 @@ const AppNavbar = (props: Props) => {
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
           <button
-            className="text-sm font-inter leading-6 text-blue-400 hover:text-[#fde047]"
-            style={{ cursor: "pointer" }}
+            className="text-sm font-inter leading-6 hover:text-[#fde047]"
+            style={{ cursor: "pointer", color: primary.main }}
           >
-            ZbdBehavior
+            Home
           </button>
 
           <ClickAwayListener onClickAway={() => setIsShowing(false)}>
@@ -117,17 +129,19 @@ const AppNavbar = (props: Props) => {
                 className="text-sm font-inter flex items-center gap-x-1 leading-6 text-[#8cbeef] focus:outline-none"
                 onClick={() => setIsShowing((isShowing) => !isShowing)}
               >
-                <span style={{ color: primary.main }}>ZbdBehavior</span>
+                <span style={{ color: primary.main }}>Operations</span>
                 <span className="ml-1">
                   {isShowing ? (
                     <ChevronUpIcon
                       className="h-5 w-5 text-blue-400"
                       aria-hidden="true"
+                      style={{ color: primary.main }}
                     />
                   ) : (
                     <ChevronDownIcon
                       className="h-5 w-5 text-blue-400"
                       aria-hidden="true"
+                      style={{ color: primary.main }}
                     />
                   )}
                 </span>
@@ -176,8 +190,9 @@ const AppNavbar = (props: Props) => {
           <button
             className="text-sm font-inter leading-6 text-blue-400 hover:text-[#fde047] "
             // onClick={() => router.push("/work")}
+            style={{ color: primary.main }}
           >
-            ZbdBehavior
+            Graphs
           </button>
         </div>
       </nav>
