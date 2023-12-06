@@ -20,7 +20,7 @@ type ExcelTemplate = {
   ID: string;
   DATE: string;
   PRODUCTNAME: string;
-  COUNT: number | null;
+  COUNT: number;
 };
 
 const ExcelForm = (props: Props) => {
@@ -47,6 +47,46 @@ const ExcelForm = (props: Props) => {
 
   const uploadFile = async (e: any) => {};
 
+  const calculateStockNeedByIncreaseAmount = (excelData: ExcelTemplate[]) => {
+    let firstThreeMonthsCount = 0;
+    let lastThreeMonthsCount = 0;
+
+    const middleIndex = Math.floor(excelData.length / 2);
+    const firstPartArray = excelData.slice(0, middleIndex);
+    const secondPartArray = excelData.slice(middleIndex);
+
+    firstPartArray.map((data) => {
+      lastThreeMonthsCount += data.COUNT;
+    });
+
+    secondPartArray.map((data) => {
+      firstThreeMonthsCount += data.COUNT;
+    });
+
+    if (
+      lastThreeMonthsCount - firstThreeMonthsCount <
+      Math.floor((firstThreeMonthsCount * 10) / 100)
+    ) {
+      return "ReduceStock";
+    } else if (
+      lastThreeMonthsCount - firstThreeMonthsCount >
+      Math.floor((firstThreeMonthsCount * 10) / 100)
+    ) {
+      return "IncreaseStock";
+    } else {
+      return "KeepStock";
+    }
+  };
+
+  const predictNextMonth = (excelData: ExcelTemplate[]) => {
+    const predictData: ExcelTemplate[] = [];
+    let stockChangeAmount = 0;
+
+    const stockNeed = calculateStockNeedByIncreaseAmount(excelData);
+
+    console.log("stockNeed", stockNeed);
+  };
+
   const selectFile = async (e: any) => {
     let excelData: ExcelTemplate[] = [];
     const file = e.target.files[0];
@@ -61,6 +101,8 @@ const ExcelForm = (props: Props) => {
       excelData = jsonData as ExcelTemplate[];
       console.log("json data", jsonData);
     });
+
+    predictNextMonth(excelData);
   };
 
   return (

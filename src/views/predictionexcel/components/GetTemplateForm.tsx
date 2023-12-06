@@ -69,7 +69,7 @@ const GetTemplateForm = ({ formData, setFormData }: Props) => {
   const prepareTemplate = (formData: FormData) => {
     const templateArray: ExcelTemplate[] = [];
 
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 183; i++) {
       const currentDate = (formData.dateValue as Dayjs).subtract(i, "day"); // formData.dateValue'dan gelen tarih, i gün önceki tarih
 
       const day = currentDate.format("DD");
