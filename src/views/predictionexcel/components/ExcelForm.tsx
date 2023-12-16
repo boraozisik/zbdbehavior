@@ -13,6 +13,7 @@ import * as XLSX from "xlsx";
 import NothingFound from "../../../components/app/NothingFound";
 import { primary, success } from "../../../theme/themeColors";
 import GetTemplate from "./GetTemplate";
+import { get } from "lodash";
 
 type Props = {};
 
@@ -78,13 +79,49 @@ const ExcelForm = (props: Props) => {
     }
   };
 
-  const predictNextMonth = (excelData: ExcelTemplate[]) => {
-    const predictData: ExcelTemplate[] = [];
-    let stockChangeAmount = 0;
+  const applySalaryWeekIncrease = (excelData: ExcelTemplate[]) => {
+    for (let i = 0; i < excelData.length; i++) {
+      if (
+        Number(get(excelData[i], "DATE").split("/")[0]) > 14 &&
+        Number(get(excelData[i], "DATE").split("/")[0]) < 22
+      ) {
+        console.log("pddddd", Number(get(excelData[i], "DATE").split("/")[0]));
+        console.log("paaaaa", get(excelData[i], "COUNT"));
+        excelData[i].COUNT += Math.floor((excelData[i].COUNT * 40) / 100);
+        console.log("paa222222", get(excelData[i], "COUNT"));
+      }
+    }
 
-    const stockNeed = calculateStockNeedByIncreaseAmount(excelData);
+    return excelData;
+  };
+
+  const predictNextMonth = (excelData: ExcelTemplate[]) => {
+    const predictData: ExcelTemplate[] = excelData;
+    const increaseAmounts: number[] = [];
+
+    const dataAfterSalaryWeeks = applySalaryWeekIncrease(excelData);
+
+    const stockNeed = calculateStockNeedByIncreaseAmount(dataAfterSalaryWeeks);
+
+    switch (stockNeed) {
+      case "ReduceStock":
+        increaseAmounts.push(-20);
+        break;
+
+      case "IncreaseStock":
+        increaseAmounts.push(20);
+        break;
+
+      case "KeepStock":
+        break;
+
+      default:
+        break;
+    }
 
     console.log("stockNeed", stockNeed);
+    console.log("predictData", predictData);
+    console.log("increaseAmounts", increaseAmounts);
   };
 
   const selectFile = async (e: any) => {
