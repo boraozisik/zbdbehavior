@@ -95,11 +95,41 @@ const ExcelForm = (props: Props) => {
     return excelData;
   };
 
+  const isNovemberDiscount = (excelData: ExcelTemplate[]) => {
+    const nextSixMonthsArray: ExcelTemplate[] = [];
+
+    excelData.map((data, index) => {
+      let splittedDate; //splitted month ve year yapılacak aynı şekilde.Ondan sonra yeni oluşturulacak gelecek 6 ayın arrayinde kasım ayı var mı diye kontrol et.Hatta bu gelecek 6 ayı oluşturma işlemini alttaki ana metoda al burada sadece kasım ayı kontrolü yap.
+      if (index === 0) {
+        splittedDate = excelData[0].DATE.split("/");
+      } else {
+        splittedDate = nextSixMonthsArray[index - 1].DATE.split("/");
+      }
+
+      splittedDate[0] = String(Number(splittedDate[0]) + 1);
+
+      if (Number(splittedDate[0]) > 30) {
+        splittedDate[0] = String(1);
+      }
+
+      nextSixMonthsArray.push({
+        ID: String(index + 1),
+        DATE: splittedDate.join("/"),
+        COUNT: data.COUNT,
+        PRODUCTNAME: data.PRODUCTNAME,
+      });
+    });
+
+    console.log("nextSixMonthsArray", nextSixMonthsArray);
+  };
+
   const predictNextMonth = (excelData: ExcelTemplate[]) => {
     const predictData: ExcelTemplate[] = excelData;
     const increaseAmounts: number[] = [];
 
     const dataAfterSalaryWeeks = applySalaryWeekIncrease(excelData);
+
+    isNovemberDiscount(dataAfterSalaryWeeks);
 
     const stockNeed = calculateStockNeedByIncreaseAmount(dataAfterSalaryWeeks);
 
