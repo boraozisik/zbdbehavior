@@ -68,14 +68,20 @@ const ExcelForm = (props: Props) => {
       lastThreeMonthsCount - firstThreeMonthsCount <
       Math.floor((firstThreeMonthsCount * 10) / 100)
     ) {
-      return "ReduceStock";
+      excelData.map((data) => {
+        data.COUNT = data.COUNT - Math.floor((data.COUNT * 15) / 100);
+      });
+      return excelData;
     } else if (
       lastThreeMonthsCount - firstThreeMonthsCount >
       Math.floor((firstThreeMonthsCount * 10) / 100)
     ) {
-      return "IncreaseStock";
+      excelData.map((data) => {
+        data.COUNT = data.COUNT + Math.floor((data.COUNT * 15) / 100);
+      });
+      return excelData;
     } else {
-      return "KeepStock";
+      return excelData;
     }
   };
 
@@ -85,23 +91,35 @@ const ExcelForm = (props: Props) => {
         Number(get(excelData[i], "DATE").split("/")[0]) > 14 &&
         Number(get(excelData[i], "DATE").split("/")[0]) < 22
       ) {
-        console.log("pddddd", Number(get(excelData[i], "DATE").split("/")[0]));
-        console.log("paaaaa", get(excelData[i], "COUNT"));
         excelData[i].COUNT += Math.floor((excelData[i].COUNT * 40) / 100);
-        console.log("paa222222", get(excelData[i], "COUNT"));
       }
     }
 
     return excelData;
   };
 
-  const isNovemberDiscount = (excelData: ExcelTemplate[]) => {
-    const nextSixMonthsArray: ExcelTemplate[] = [];
-
+  const applyIfNovemberDiscount = (excelData: ExcelTemplate[]) => {
     excelData.map((data, index) => {
-      let splittedDate; //splitted month ve year yapılacak aynı şekilde.Ondan sonra yeni oluşturulacak gelecek 6 ayın arrayinde kasım ayı var mı diye kontrol et.Hatta bu gelecek 6 ayı oluşturma işlemini alttaki ana metoda al burada sadece kasım ayı kontrolü yap.
+      const splittedDate = excelData[index].DATE.split("/");
+      if (Number(splittedDate[1]) === 11) {
+        data.COUNT = data.COUNT + Math.floor((data.COUNT * 70) / 100);
+      }
+    });
+
+    return excelData;
+  };
+
+  const predictNextSixMonth = (excelData: ExcelTemplate[]) => {
+    const nextSixMonthsArray: ExcelTemplate[] = [];
+    const dataAfterStockArrange = calculateStockNeedByIncreaseAmount(excelData);
+
+    console.log("dataAfterStockArrange", dataAfterStockArrange);
+
+    dataAfterStockArrange.map((data, index) => {
+      let splittedDate;
+
       if (index === 0) {
-        splittedDate = excelData[0].DATE.split("/");
+        splittedDate = dataAfterStockArrange[0].DATE.split("/");
       } else {
         splittedDate = nextSixMonthsArray[index - 1].DATE.split("/");
       }
@@ -110,48 +128,34 @@ const ExcelForm = (props: Props) => {
 
       if (Number(splittedDate[0]) > 30) {
         splittedDate[0] = String(1);
+        splittedDate[1] = String(Number(splittedDate[1]) + 1);
+        if (Number(splittedDate[1]) > 12) {
+          splittedDate[1] = String(1);
+        }
       }
 
+      if (Number(splittedDate[0]) === 1 && Number(splittedDate[1]) === 1) {
+        splittedDate[2] = String(Number(splittedDate[2]) + 1);
+      }
+      console.log(`${index}`, dataAfterStockArrange[index].COUNT);
       nextSixMonthsArray.push({
         ID: String(index + 1),
         DATE: splittedDate.join("/"),
-        COUNT: data.COUNT,
-        PRODUCTNAME: data.PRODUCTNAME,
+        PRODUCTNAME: dataAfterStockArrange[index].PRODUCTNAME,
+        COUNT: dataAfterStockArrange[index].COUNT,
       });
     });
 
     console.log("nextSixMonthsArray", nextSixMonthsArray);
-  };
 
-  const predictNextMonth = (excelData: ExcelTemplate[]) => {
-    const predictData: ExcelTemplate[] = excelData;
-    const increaseAmounts: number[] = [];
+    const dataAfterSalaryWeeks = applySalaryWeekIncrease(nextSixMonthsArray);
 
-    const dataAfterSalaryWeeks = applySalaryWeekIncrease(excelData);
+    console.log("dataAfterSalaryWeeks", dataAfterSalaryWeeks);
 
-    isNovemberDiscount(dataAfterSalaryWeeks);
+    const dataAfterNovemberDiscount =
+      applyIfNovemberDiscount(dataAfterSalaryWeeks);
 
-    const stockNeed = calculateStockNeedByIncreaseAmount(dataAfterSalaryWeeks);
-
-    switch (stockNeed) {
-      case "ReduceStock":
-        increaseAmounts.push(-20);
-        break;
-
-      case "IncreaseStock":
-        increaseAmounts.push(20);
-        break;
-
-      case "KeepStock":
-        break;
-
-      default:
-        break;
-    }
-
-    console.log("stockNeed", stockNeed);
-    console.log("predictData", predictData);
-    console.log("increaseAmounts", increaseAmounts);
+    console.log("dataAfterNovemberDiscount", dataAfterNovemberDiscount);
   };
 
   const selectFile = async (e: any) => {
@@ -165,11 +169,19 @@ const ExcelForm = (props: Props) => {
       const worksheet = workbook.Sheets[worksheetName];
 
       const jsonData = XLSX.utils.sheet_to_json(worksheet);
-      excelData = jsonData as ExcelTemplate[];
+      jsonData.map((data, i) => {
+        excelData.push({
+          ID: String(get(jsonData[i], "ID")),
+          DATE: String(get(jsonData[i], "DATE")),
+          PRODUCTNAME: String(get(jsonData[i], "PRODUCT NAME")),
+          COUNT: Number(get(jsonData[i], "COUNT")),
+        });
+      });
+
       console.log("json data", jsonData);
     });
 
-    predictNextMonth(excelData);
+    predictNextSixMonth(excelData);
   };
 
   return (
