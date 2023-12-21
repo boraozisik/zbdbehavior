@@ -5,15 +5,26 @@ import {
   Button,
   CircularProgress,
   Fab,
+  Grid,
   Stack,
   TextField,
+  Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import * as XLSX from "xlsx";
 import NothingFound from "../../../components/app/NothingFound";
-import { primary, success } from "../../../theme/themeColors";
+import { primary, secondary, success } from "../../../theme/themeColors";
 import GetTemplate from "./GetTemplate";
 import { get } from "lodash";
+import {
+  DataGrid,
+  GridColDef,
+  GridToolbarColumnsButton,
+  GridToolbarContainer,
+  GridToolbarDensitySelector,
+  GridToolbarFilterButton,
+  GridToolbarQuickFilter,
+} from "@mui/x-data-grid";
 
 type Props = {};
 
@@ -25,6 +36,7 @@ type ExcelTemplate = {
 };
 
 const ExcelForm = (props: Props) => {
+  const [excelData, setExcelData] = useState<ExcelTemplate[]>([]);
   const [uploadLoading, setLoading] = React.useState(false);
   const [uploadSuccess, setSuccess] = React.useState(false);
   const timer = React.useRef<number>();
@@ -46,9 +58,52 @@ const ExcelForm = (props: Props) => {
     }
   };
 
+  const columns: GridColDef[] = [
+    { field: "id", headerName: "ID", flex: 1 },
+    {
+      field: "date",
+      headerName: "Date",
+      flex: 1,
+    },
+    {
+      field: "productName",
+      headerName: "Product Name",
+      flex: 1,
+    },
+    {
+      field: "count",
+      headerName: "Count",
+      flex: 1,
+    },
+  ];
+
+  const rows = excelData.map((data: ExcelTemplate, index: number) => ({
+    id: index + 1,
+    date: data.DATE,
+    productName: data.PRODUCTNAME,
+    count: data.COUNT,
+  }));
+
+  function CustomToolbar() {
+    return (
+      <GridToolbarContainer
+        sx={{ display: "flex", justifyContent: "left", height: 50 }}
+      >
+        <GridToolbarColumnsButton sx={{ color: primary.main }} />
+        <GridToolbarFilterButton sx={{ color: primary.main }} />
+        <GridToolbarDensitySelector sx={{ color: primary.main }} />
+
+        <GridToolbarQuickFilter sx={{ ml: "auto", width: "15%" }} />
+      </GridToolbarContainer>
+    );
+  }
+
+  console.log("excelDataMain", excelData);
+
   const uploadFile = async (e: any) => {};
 
   const calculateStockNeedByIncreaseAmount = (excelData: ExcelTemplate[]) => {
+    const newArr = [];
     let firstThreeMonthsCount = 0;
     let lastThreeMonthsCount = 0;
 
@@ -56,57 +111,108 @@ const ExcelForm = (props: Props) => {
     const firstPartArray = excelData.slice(0, middleIndex);
     const secondPartArray = excelData.slice(middleIndex);
 
-    firstPartArray.map((data) => {
-      lastThreeMonthsCount += data.COUNT;
-    });
+    for (let i = 0; i < firstPartArray.length; i++) {
+      lastThreeMonthsCount += firstPartArray[i].COUNT;
+    }
 
-    secondPartArray.map((data) => {
-      firstThreeMonthsCount += data.COUNT;
-    });
+    for (let i = 0; i < secondPartArray.length; i++) {
+      firstThreeMonthsCount += secondPartArray[i].COUNT;
+    }
 
     if (
       lastThreeMonthsCount - firstThreeMonthsCount <
       Math.floor((firstThreeMonthsCount * 10) / 100)
     ) {
-      excelData.map((data) => {
-        data.COUNT = data.COUNT - Math.floor((data.COUNT * 15) / 100);
-      });
-      return excelData;
+      for (let i = 0; i < excelData.length; i++) {
+        newArr.push({
+          ID: String(i + 1),
+          DATE: get(excelData[i], "DATE"),
+          PRODUCTNAME: get(excelData[i], "PRODUCTNAME"),
+          COUNT:
+            get(excelData[i], "COUNT") -
+            Math.floor((get(excelData[i], "COUNT") * 15) / 100),
+        });
+      }
     } else if (
       lastThreeMonthsCount - firstThreeMonthsCount >
       Math.floor((firstThreeMonthsCount * 10) / 100)
     ) {
-      excelData.map((data) => {
-        data.COUNT = data.COUNT + Math.floor((data.COUNT * 15) / 100);
-      });
-      return excelData;
+      for (let i = 0; i < excelData.length; i++) {
+        newArr.push({
+          ID: String(i + 1),
+          DATE: get(excelData[i], "DATE"),
+          PRODUCTNAME: get(excelData[i], "PRODUCTNAME"),
+          COUNT:
+            get(excelData[i], "COUNT") +
+            Math.floor((get(excelData[i], "COUNT") * 15) / 100),
+        });
+      }
     } else {
-      return excelData;
+      for (let i = 0; i < excelData.length; i++) {
+        newArr.push({
+          ID: String(i + 1),
+          DATE: get(excelData[i], "DATE"),
+          PRODUCTNAME: get(excelData[i], "PRODUCTNAME"),
+          COUNT: get(excelData[i], "COUNT"),
+        });
+      }
     }
+
+    return newArr;
   };
 
   const applySalaryWeekIncrease = (excelData: ExcelTemplate[]) => {
+    const newArr = [];
     for (let i = 0; i < excelData.length; i++) {
       if (
         Number(get(excelData[i], "DATE").split("/")[0]) > 14 &&
         Number(get(excelData[i], "DATE").split("/")[0]) < 22
       ) {
-        excelData[i].COUNT += Math.floor((excelData[i].COUNT * 40) / 100);
+        newArr.push({
+          ID: String(i + 1),
+          DATE: get(excelData[i], "DATE"),
+          PRODUCTNAME: get(excelData[i], "PRODUCTNAME"),
+          COUNT:
+            get(excelData[i], "COUNT") +
+            Math.floor((get(excelData[i], "COUNT") * 40) / 100),
+        });
+      } else {
+        newArr.push({
+          ID: String(i + 1),
+          DATE: get(excelData[i], "DATE"),
+          PRODUCTNAME: get(excelData[i], "PRODUCTNAME"),
+          COUNT: get(excelData[i], "COUNT"),
+        });
       }
     }
 
-    return excelData;
+    return newArr;
   };
 
   const applyIfNovemberDiscount = (excelData: ExcelTemplate[]) => {
-    excelData.map((data, index) => {
-      const splittedDate = excelData[index].DATE.split("/");
+    const newArr = [];
+    for (let i = 0; i < excelData.length; i++) {
+      const splittedDate = excelData[i].DATE.split("/");
       if (Number(splittedDate[1]) === 11) {
-        data.COUNT = data.COUNT + Math.floor((data.COUNT * 70) / 100);
+        newArr.push({
+          ID: String(i + 1),
+          DATE: get(excelData[i], "DATE"),
+          PRODUCTNAME: get(excelData[i], "PRODUCTNAME"),
+          COUNT:
+            get(excelData[i], "COUNT") +
+            Math.floor((get(excelData[i], "COUNT") * 70) / 100),
+        });
+      } else {
+        newArr.push({
+          ID: String(i + 1),
+          DATE: get(excelData[i], "DATE"),
+          PRODUCTNAME: get(excelData[i], "PRODUCTNAME"),
+          COUNT: get(excelData[i], "COUNT"),
+        });
       }
-    });
+    }
 
-    return excelData;
+    return newArr;
   };
 
   const predictNextSixMonth = (excelData: ExcelTemplate[]) => {
@@ -115,7 +221,7 @@ const ExcelForm = (props: Props) => {
 
     console.log("dataAfterStockArrange", dataAfterStockArrange);
 
-    dataAfterStockArrange.map((data, index) => {
+    for (let index = 0; index < dataAfterStockArrange.length; index++) {
       let splittedDate;
 
       if (index === 0) {
@@ -144,7 +250,7 @@ const ExcelForm = (props: Props) => {
         PRODUCTNAME: dataAfterStockArrange[index].PRODUCTNAME,
         COUNT: dataAfterStockArrange[index].COUNT,
       });
-    });
+    }
 
     console.log("nextSixMonthsArray", nextSixMonthsArray);
 
@@ -156,6 +262,8 @@ const ExcelForm = (props: Props) => {
       applyIfNovemberDiscount(dataAfterSalaryWeeks);
 
     console.log("dataAfterNovemberDiscount", dataAfterNovemberDiscount);
+
+    setExcelData(dataAfterNovemberDiscount);
   };
 
   const selectFile = async (e: any) => {
@@ -169,14 +277,14 @@ const ExcelForm = (props: Props) => {
       const worksheet = workbook.Sheets[worksheetName];
 
       const jsonData = XLSX.utils.sheet_to_json(worksheet);
-      jsonData.map((data, i) => {
+      for (let i = 0; i < jsonData.length; i++) {
         excelData.push({
           ID: String(get(jsonData[i], "ID")),
           DATE: String(get(jsonData[i], "DATE")),
           PRODUCTNAME: String(get(jsonData[i], "PRODUCT NAME")),
           COUNT: Number(get(jsonData[i], "COUNT")),
         });
-      });
+      }
 
       console.log("json data", jsonData);
     });
@@ -280,7 +388,47 @@ const ExcelForm = (props: Props) => {
           <GetTemplate />
         </Stack>
       </Stack>
-      <NothingFound />
+      {excelData.length > 0 ? (
+        <Grid container padding={1}>
+          <Grid item xs={12}>
+            <DataGrid
+              rows={rows}
+              columns={columns}
+              components={{ Toolbar: CustomToolbar }}
+              initialState={{
+                pagination: {
+                  paginationModel: {
+                    pageSize: 20,
+                  },
+                },
+              }}
+              sx={{
+                boxShadow: 5,
+                border: 1,
+                borderColor: "#D6EAF8",
+                "& .MuiDataGrid-row:hover": {
+                  background: "#EBF5FB",
+                },
+                "& .MuiDataGrid-cell:hover": {
+                  color: primary.main,
+                },
+                ".MuiDataGrid-columnHeader": {
+                  backgroundColor: "#D6EAF8",
+                  color: secondary.main,
+                  fontWeight: "bold",
+                },
+                ".MuiDataGrid-columnSeparator": {
+                  color: primary.main,
+                },
+              }}
+              pageSizeOptions={[10, 20, 50, 100]}
+              disableRowSelectionOnClick
+            />
+          </Grid>
+        </Grid>
+      ) : (
+        <NothingFound />
+      )}
     </Stack>
   );
 };
