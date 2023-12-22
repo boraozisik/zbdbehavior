@@ -11,7 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import * as XLSX from "xlsx";
+import * as XLSXT from "xlsx";
 import NothingFound from "../../../components/app/NothingFound";
 import { primary, secondary, success } from "../../../theme/themeColors";
 import GetTemplate from "./GetTemplate";
@@ -25,6 +25,7 @@ import {
   GridToolbarFilterButton,
   GridToolbarQuickFilter,
 } from "@mui/x-data-grid";
+import XLSX from "sheetjs-style";
 
 type Props = {};
 
@@ -35,8 +36,35 @@ type ExcelTemplate = {
   COUNT: number;
 };
 
+const TARGET_CELLS = [
+  {
+    cell: "A1",
+    name: "ID",
+  },
+  {
+    cell: "B1",
+    name: "DATE",
+  },
+  {
+    cell: "C1",
+    name: "PRODUCT NAME",
+  },
+  {
+    cell: "D1",
+    name: "COUNT",
+  },
+];
+
+const COLUMN_STYLES = [
+  { column: "A", width: 10 },
+  { column: "B", width: 20 },
+  { column: "C", width: 30 },
+  { column: "D", width: 20 },
+];
+
 const ExcelForm = (props: Props) => {
   const [excelData, setExcelData] = useState<ExcelTemplate[]>([]);
+  const [selectedFileData, setSelectedFileData] = useState<ExcelTemplate[]>([]);
   const [uploadLoading, setLoading] = React.useState(false);
   const [uploadSuccess, setSuccess] = React.useState(false);
   const timer = React.useRef<number>();
@@ -46,17 +74,6 @@ const ExcelForm = (props: Props) => {
       clearTimeout(timer.current);
     };
   }, []);
-
-  const handleButtonClick = () => {
-    if (!uploadLoading) {
-      setSuccess(false);
-      setLoading(true);
-      timer.current = window.setTimeout(() => {
-        setSuccess(true);
-        setLoading(false);
-      }, 2000);
-    }
-  };
 
   const columns: GridColDef[] = [
     { field: "id", headerName: "ID", flex: 1 },
@@ -93,14 +110,80 @@ const ExcelForm = (props: Props) => {
         <GridToolbarFilterButton sx={{ color: primary.main }} />
         <GridToolbarDensitySelector sx={{ color: primary.main }} />
 
-        <GridToolbarQuickFilter sx={{ ml: "auto", width: "15%" }} />
+        <Stack direction={"row"} ml={"auto"} width={"25%"} gap={2}>
+          <GridToolbarQuickFilter />
+          <Button
+            className="font-semibold italic"
+            variant="contained"
+            sx={{
+              backgroundColor: primary[900],
+              "&:hover": {
+                bgcolor: primary.main,
+              },
+              textTransform: "capitalize",
+              height: 30,
+              width: 200,
+            }}
+            onClick={downloadAsExcel}
+          >
+            Download as Excel
+          </Button>
+        </Stack>
       </GridToolbarContainer>
     );
   }
 
   console.log("excelDataMain", excelData);
 
-  const uploadFile = async (e: any) => {};
+  const uploadFile = async () => {
+    predictNextSixMonth(selectedFileData);
+  };
+
+  const downloadAsExcel = () => {
+    const downloadArray: ExcelTemplate[] = [];
+
+    for (let i = 0; i < excelData.length; i++) {
+      downloadArray.push({
+        ID: excelData[i].ID,
+        DATE: excelData[i].DATE,
+        PRODUCTNAME: excelData[i].PRODUCTNAME,
+        COUNT: excelData[i].COUNT,
+      });
+    }
+
+    const workSheet = XLSX.utils.json_to_sheet(downloadArray);
+
+    TARGET_CELLS.forEach((cellAddress) => {
+      workSheet[cellAddress.cell] = {
+        v: cellAddress.name,
+        s: {
+          font: { bold: true },
+          fill: {
+            fgColor: { rgb: "D5F5E3" },
+          },
+          alignment: { horizontal: "center", vertical: "center" },
+          border: {
+            left: { style: "thin", color: "FFD5D5D5" },
+          },
+        },
+      };
+    });
+
+    COLUMN_STYLES.forEach(({ column, width }) => {
+      workSheet["!cols"] = workSheet["!cols"] || [];
+      workSheet["!cols"].push({ wch: width });
+    });
+
+    const workBook = XLSX.utils.book_new();
+
+    XLSX.utils.book_append_sheet(workBook, workSheet, "Sales_Predictions");
+
+    XLSX.writeFile(workBook, "ZBDBehavior_Predictions_6-Months.xlsx", {
+      cellDates: true,
+      bookSST: true,
+      cellStyles: true,
+    });
+  };
 
   const calculateStockNeedByIncreaseAmount = (excelData: ExcelTemplate[]) => {
     const newArr = [];
@@ -216,6 +299,8 @@ const ExcelForm = (props: Props) => {
   };
 
   const predictNextSixMonth = (excelData: ExcelTemplate[]) => {
+    setSuccess(false);
+    setLoading(true);
     const nextSixMonthsArray: ExcelTemplate[] = [];
     const dataAfterStockArrange = calculateStockNeedByIncreaseAmount(excelData);
 
@@ -264,6 +349,8 @@ const ExcelForm = (props: Props) => {
     console.log("dataAfterNovemberDiscount", dataAfterNovemberDiscount);
 
     setExcelData(dataAfterNovemberDiscount);
+    setSuccess(true);
+    setLoading(false);
   };
 
   const selectFile = async (e: any) => {
@@ -271,12 +358,12 @@ const ExcelForm = (props: Props) => {
     const file = e.target.files[0];
     console.log("file", e.target.files[0]);
     const data = await file.arrayBuffer();
-    const workbook = XLSX.read(data);
+    const workbook = XLSXT.read(data);
     console.log("workbook", workbook);
     workbook.SheetNames.map((worksheetName: string) => {
       const worksheet = workbook.Sheets[worksheetName];
 
-      const jsonData = XLSX.utils.sheet_to_json(worksheet);
+      const jsonData = XLSXT.utils.sheet_to_json(worksheet);
       for (let i = 0; i < jsonData.length; i++) {
         excelData.push({
           ID: String(get(jsonData[i], "ID")),
@@ -288,8 +375,7 @@ const ExcelForm = (props: Props) => {
 
       console.log("json data", jsonData);
     });
-
-    predictNextSixMonth(excelData);
+    setSelectedFileData(excelData);
   };
 
   return (
@@ -331,7 +417,7 @@ const ExcelForm = (props: Props) => {
                   }),
                 }}
                 disabled={uploadLoading}
-                onClick={handleButtonClick}
+                onClick={uploadFile}
               >
                 Upload
               </Button>
@@ -365,7 +451,7 @@ const ExcelForm = (props: Props) => {
                     },
                   }),
                 }}
-                onClick={handleButtonClick}
+                onClick={uploadFile}
               >
                 {uploadSuccess ? <CheckIcon /> : <SaveIcon />}
               </Fab>
