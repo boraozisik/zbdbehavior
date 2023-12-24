@@ -10,6 +10,10 @@ const Operations = (props: Props) => {
   const handleClickPredictionExcel = () => {
     navigate("/predictionexcel");
   };
+
+  const handleClickCharts = () => {
+    navigate("/charts");
+  };
   return (
     <div className="bg-gray-800">
       <section>
@@ -49,7 +53,7 @@ const Operations = (props: Props) => {
                 Potential Sales Excel
               </h1>
 
-              <p className="text-gray-400 italic">
+              <p className="text-gray-400 italic text-justify">
                 This feature aims to predict future sales by examining the past
                 sales of any specified product. By doing so, you can anticipate
                 potential sales, adjust inventory accordingly, and effectively
@@ -79,20 +83,29 @@ const Operations = (props: Props) => {
             </div>
             <div className="space-y-3">
               <span className="inline-block p-3 bg-gray-200 rounded-full">
-                <AcUnitIcon sx={{ color: primary.main }} />
+                <img
+                  src="/static/icons/chart-icon.svg"
+                  alt=""
+                  style={{ width: "28px", height: "28px" }}
+                />
               </span>
 
               <h1 className="text-xl font-semibold capitalize text-gray-200 italic">
-                Copy & paste components
+                Declarative Charts
               </h1>
 
-              <p className="text-gray-400 italic">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Provident ab nulla quod dignissimos vel non corrupti doloribus
-                voluptatum eveniet
+              <p className="text-gray-400 italic text-justify">
+                Companies are constantly pressed for time, making it essential
+                to adopt a charting system that is effortlessly excellent from
+                the start. A declarative, concise approach is crucial,
+                minimizing the need for extensive imperative scripting. This not
+                only propels progress but also enables you to articulate your
+                data visualization requirements swiftly, aligning with the pace
+                of your creative endeavors.
               </p>
 
               <button
+                onClick={handleClickCharts}
                 className="inline-flex items-center -mx-1 text-sm capitalize transition-colors duration-300 transform  hover:underline"
                 style={{ color: primary.main }}
               >
