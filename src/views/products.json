@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "macbookPro": 35,
+    "samsungGalaxyWatch": 56,
+    "jblClipFour": 27,
+    "month": "Jan"
+  },
+  {
+    "id": 2,
+    "macbookPro": 75,
+    "samsungGalaxyWatch": 48,
+    "jblClipFour": 16,
+    "month": "Feb"
+  },
+  {
+    "id": 3,
+    "macbookPro": 29,
+    "samsungGalaxyWatch": 62,
+    "jblClipFour": 36,
+    "month": "Mar"
+  },
+  {
+    "id": 4,
+    "macbookPro": 50,
+    "samsungGalaxyWatch": 32,
+    "jblClipFour": 26,
+    "month": "Apr"
+  },
+  {
+    "id": 5,
+    "macbookPro": 65,
+    "samsungGalaxyWatch": 24,
+    "jblClipFour": 47,
+    "month": "May"
+  },
+  {
+    "id": 6,
+    "macbookPro": 45,
+    "samsungGalaxyWatch": 78,
+    "jblClipFour": 14,
+    "month": "Jun"
+  },
+  {
+    "id": 7,
+    "macbookPro": 16,
+    "samsungGalaxyWatch": 56,
+    "jblClipFour": 35,
+    "month": "Jul"
+  },
+  {
+    "id": 8,
+    "macbookPro": 37,
+    "samsungGalaxyWatch": 45,
+    "jblClipFour": 67,
+    "month": "Aug"
+  },
+  {
+    "id": 9,
+    "macbookPro": 57,
+    "samsungGalaxyWatch": 23,
+    "jblClipFour": 78,
+    "month": "Sep"
+  },
+  {
+    "id": 10,
+    "macbookPro": 28,
+    "samsungGalaxyWatch": 65,
+    "jblClipFour": 48,
+    "month": "Oct"
+  },
+  {
+    "id": 11,
+    "macbookPro": 64,
+    "samsungGalaxyWatch": 33,
+    "jblClipFour": 16,
+    "month": "Nov"
+  },
+  {
+    "id": 12,
+    "macbookPro": 46,
+    "samsungGalaxyWatch": 77,
+    "jblClipFour": 58,
+    "month": "Dec"
+  }
+]
