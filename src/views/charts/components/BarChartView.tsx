@@ -1,8 +1,6 @@
-import React from "react";
-import ProductsData from "../../products.json";
-import { BarChart } from "@mui/x-charts/BarChart";
 import { axisClasses } from "@mui/x-charts";
-import { Paper } from "@mui/material";
+import { BarChart } from "@mui/x-charts/BarChart";
+import ProductsData from "../../products.json";
 
 type Props = {};
 
@@ -13,7 +11,7 @@ const chartSettings = {
     },
   ],
   width: 700,
-  height: 300,
+  height: 400,
   sx: {
     [`.${axisClasses.left} .${axisClasses.label}`]: {
       transform: "translate(-10px, 0)",

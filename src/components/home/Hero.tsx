@@ -1,8 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import { primary } from "../../theme/themeColors";
 
 type Props = {};
 
 const Hero = (props: Props) => {
+  const navigate = useNavigate();
+
+  const handleClickCharts = () => {
+    navigate("/charts");
+  };
+
   return (
     <section className="text-gray-700 p-3 lg:px-8 lg:container lg:mx-auto">
       <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
@@ -32,7 +39,10 @@ const Hero = (props: Props) => {
                 Explore Operations
               </button>
 
-              <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-inter text-gray-900 rounded-lg group bg-gradient-to-br from-[#6C63FF] to-[#FF6C90] group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white  focus:ring-4 focus:outline-none focus:ring-blue-300 ">
+              <button
+                className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-inter text-gray-900 rounded-lg group bg-gradient-to-br from-[#6C63FF] to-[#FF6C90] group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white  focus:ring-4 focus:outline-none focus:ring-blue-300"
+                onClick={handleClickCharts}
+              >
                 <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white  rounded-md group-hover:bg-opacity-0">
                   See Graphs
                 </span>

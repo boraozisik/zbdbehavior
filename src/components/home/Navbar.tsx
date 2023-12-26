@@ -1,13 +1,14 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import AutoStoriesOutlinedIcon from "@mui/icons-material/AutoStoriesOutlined";
+import UploadFileOutlinedIcon from "@mui/icons-material/UploadFileOutlined";
 import CelebrationOutlinedIcon from "@mui/icons-material/CelebrationOutlined";
 import ConnectWithoutContactOutlinedIcon from "@mui/icons-material/ConnectWithoutContactOutlined";
-import RouteOutlinedIcon from "@mui/icons-material/RouteOutlined";
+import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
 import { ClickAwayListener } from "@mui/material";
 import { Fragment, useEffect, useState } from "react";
 import { primary } from "../../theme/themeColors";
+import { useNavigate } from "react-router-dom";
 
 type Props = {};
 
@@ -16,18 +17,32 @@ const AppNavbar = (props: Props) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [top, setTop] = useState(true);
   const [isShowing, setIsShowing] = useState(false);
+  const navigate = useNavigate();
+
+  const handleClickHome = () => {
+    navigate("/");
+  };
+
+  const handleClickPredictionExcel = () => {
+    navigate("/predictionexcel");
+  };
+
+  const handleClickCharts = () => {
+    navigate("/charts");
+  };
+
   const about = [
     {
       name: "Potential Sales Excel",
-      description: "ZbdBehavior",
-      // onClick: () => router.push("/ZbdBehavior"),
-      icon: AutoStoriesOutlinedIcon,
+      description: "Upload your sales and get your prediction excel",
+      onClick: handleClickPredictionExcel,
+      icon: UploadFileOutlinedIcon,
     },
     {
-      name: "Operation2",
-      description: "ZbdBehavior",
-      // onClick: () => router.push("/ZbdBehaviorr"),
-      icon: RouteOutlinedIcon,
+      name: "Charts",
+      description: "Examine your data on simple and descriptive charts",
+      onClick: handleClickCharts,
+      icon: BarChartOutlinedIcon,
     },
     {
       name: "Operation3",
@@ -117,8 +132,9 @@ const AppNavbar = (props: Props) => {
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
           <button
-            className="text-sm font-inter leading-6 hover:text-[#fde047]"
+            className="text-medium italic font-inter leading-6"
             style={{ cursor: "pointer", color: primary.main }}
+            onClick={handleClickHome}
           >
             Home
           </button>
@@ -126,10 +142,15 @@ const AppNavbar = (props: Props) => {
           <ClickAwayListener onClickAway={() => setIsShowing(false)}>
             <div className="relative text-center">
               <button
-                className="text-sm font-inter flex items-center gap-x-1 leading-6 text-[#8cbeef] focus:outline-none"
+                className="text-medium font-inter flex items-center gap-x-1 leading-6 focus:outline-none"
                 onClick={() => setIsShowing((isShowing) => !isShowing)}
               >
-                <span style={{ color: primary.main }}>Operations</span>
+                <span
+                  className="text-medium italic"
+                  style={{ color: primary.main }}
+                >
+                  Operations
+                </span>
                 <span className="ml-1">
                   {isShowing ? (
                     <ChevronUpIcon
@@ -157,17 +178,17 @@ const AppNavbar = (props: Props) => {
                 leaveFrom="opacity-100 transform translate-x-0 scale-100"
                 leaveTo="opacity-0 transform -translate-x-1/2 scale-95"
               >
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-3 w-[280px] rounded-lg bg-white text-sm shadow-lg ring-1 ring-gray-900/5">
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-3 w-[340px] rounded-lg bg-white text-sm shadow-lg ring-1 ring-gray-900/5">
                   <div className="p-4">
                     {about.map((item) => (
                       <button
                         key={item.name}
-                        // onClick={item.onClick}
+                        onClick={item.onClick}
                         className="group w-full flex items-start gap-x-5 p-3 rounded-lg hover:bg-gray-50 focus:outline-none text-left"
                       >
                         <div className="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-lg group-hover:bg-white">
                           <item.icon
-                            className="h-6 w-6 text-gray-600 group-hover:text-[#8cbeef]"
+                            className="h-6 w-6 text-gray-600 group-hover:text-[#6C63FF]"
                             aria-hidden="true"
                           />
                         </div>

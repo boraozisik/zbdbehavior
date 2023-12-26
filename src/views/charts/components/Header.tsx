@@ -42,7 +42,9 @@ const Header = ({ value, handleChange }: HeaderProps) => {
               alt=""
               style={{ width: "50px", height: "50px" }}
             />
-            <p className="text-white font-semibold italic">Click to see Bar</p>
+            <p className="text-white font-semibold italic">
+              Click to see Bar Chart
+            </p>
           </div>
 
           <div
@@ -54,7 +56,9 @@ const Header = ({ value, handleChange }: HeaderProps) => {
               alt=""
               style={{ width: "50px", height: "50px" }}
             />
-            <p className="text-white font-semibold italic">Click to see Line</p>
+            <p className="text-white font-semibold italic">
+              Click to see Line Chart
+            </p>
           </div>
 
           <div
@@ -66,7 +70,9 @@ const Header = ({ value, handleChange }: HeaderProps) => {
               alt=""
               style={{ width: "50px", height: "50px" }}
             />
-            <p className="text-white font-semibold italic">Click to see Pie</p>
+            <p className="text-white font-semibold italic">
+              Click to see Pie Chart
+            </p>
           </div>
         </div>
       </div>
