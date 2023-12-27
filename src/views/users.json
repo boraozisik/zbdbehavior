@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "first_name": "Ferrel",
+    "last_name": "Peter",
+    "cart": ["Macbook Pro 14"]
+  },
+  {
+    "id": 2,
+    "first_name": "Shea",
+    "last_name": "Chase",
+    "cart": ["Samsung Galaxy Watch", "JBL Clip 4"]
+  },
+  {
+    "id": 3,
+    "first_name": "Tansy",
+    "last_name": "Cluney",
+    "cart": ["JBL Clip 4"]
+  },
+  {
+    "id": 4,
+    "first_name": "Riane",
+    "last_name": "Sangster",
+    "cart": ["Samsung Galaxy Watch"]
+  },
+  {
+    "id": 5,
+    "first_name": "Kiel",
+    "last_name": "Mitkcov",
+    "cart": ["Macbook Pro 14", "Samsung Galaxy Watch"]
+  },
+  {
+    "id": 6,
+    "first_name": "Abbie",
+    "last_name": "Van der Kruis",
+    "cart": ["Macbook Pro 14", "JBL Clip 4"]
+  },
+  {
+    "id": 7,
+    "first_name": "Godfrey",
+    "last_name": "Zupa",
+    "cart": ["Macbook Pro 14"]
+  },
+  {
+    "id": 8,
+    "first_name": "L;urette",
+    "last_name": "Clue",
+    "cart": ["Macbook Pro 14", "Samsung Galaxy Watch", "JBL Clip 4"]
+  },
+  {
+    "id": 9,
+    "first_name": "Arlen",
+    "last_name": "Dumsday",
+    "cart": ["Samsung Galaxy Watch"]
+  },
+  {
+    "id": 10,
+    "first_name": "Monika",
+    "last_name": "Bugbird",
+    "cart": ["JBL Clip 4"]
+  },
+  {
+    "id": 11,
+    "first_name": "Bay",
+    "last_name": "Swedeland",
+    "cart": ["Macbook Pro 14", "Samsung Galaxy Watch", "JBL Clip 4"]
+  },
+  {
+    "id": 12,
+    "first_name": "Ingrim",
+    "last_name": "Chatfield",
+    "cart": ["Macbook Pro 14"]
+  },
+  {
+    "id": 13,
+    "first_name": "Selig",
+    "last_name": "Boother",
+    "cart": ["Samsung Galaxy Watch"]
+  },
+  {
+    "id": 14,
+    "first_name": "Tomkin",
+    "last_name": "Neame",
+    "cart": ["JBL Clip 4"]
+  },
+  {
+    "id": 15,
+    "first_name": "Odette",
+    "last_name": "Hathway",
+    "cart": ["JBL Clip 4"]
+  },
+  {
+    "id": 16,
+    "first_name": "Lenette",
+    "last_name": "Halpeine",
+    "cart": ["Samsung Galaxy Watch"]
+  },
+  {
+    "id": 17,
+    "first_name": "Connor",
+    "last_name": "Kenion",
+    "cart": ["Macbook Pro 14"]
+  },
+  {
+    "id": 18,
+    "first_name": "Onofredo",
+    "last_name": "Perello",
+    "cart": ["Samsung Galaxy Watch"]
+  },
+  {
+    "id": 19,
+    "first_name": "Reginauld",
+    "last_name": "Cosstick",
+    "cart": ["Macbook Pro 14", "JBL Clip 4"]
+  },
+  {
+    "id": 20,
+    "first_name": "Lawry",
+    "last_name": "McDuffie",
+    "cart": ["Macbook Pro 14", "Samsung Galaxy Watch"]
+  }
+]

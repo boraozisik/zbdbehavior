@@ -14,6 +14,10 @@ const Operations = (props: Props) => {
   const handleClickCharts = () => {
     navigate("/charts");
   };
+
+  const handleClickCampaign = () => {
+    navigate("/campaign");
+  };
   return (
     <div className="bg-gray-800">
       <section>
@@ -126,20 +130,26 @@ const Operations = (props: Props) => {
             </div>
             <div className="space-y-3">
               <span className="inline-block p-3 bg-gray-200 rounded-full">
-                <AcUnitIcon sx={{ color: primary.main }} />
+                <img
+                  src="/static/icons/define-campaign-icon.svg"
+                  alt=""
+                  style={{ width: "28px", height: "28px" }}
+                />
               </span>
 
               <h1 className="text-xl font-semibold capitalize text-gray-200 italic">
-                Copy & paste components
+                Define Campaign
               </h1>
 
               <p className="text-gray-400 italic">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Provident ab nulla quod dignissimos vel non corrupti doloribus
-                voluptatum eveniet
+                This feature allows you to easily define a campaign for users
+                who have added at least one of your products to their cart in
+                case others of your products are also purchased. This feature
+                encourages the user to buy and use more of your products.
               </p>
 
               <button
+                onClick={handleClickCampaign}
                 className="inline-flex items-center -mx-1 text-sm capitalize transition-colors duration-300 transform  hover:underline"
                 style={{ color: primary.main }}
               >

@@ -5,6 +5,7 @@ import Deneme from "./views/deneme";
 import NoPage from "./views/NoPage";
 import PredictionExcel from "./views/predictionexcel/PredictionExcel";
 import Charts from "./views/charts/Charts";
+import DefineCampaign from "./views/defineCampaign/DefineCampaign";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="*" index element={<NoPage />} />
           <Route path="/predictionexcel" index element={<PredictionExcel />} />
           <Route path="/charts" index element={<Charts />} />
+          <Route path="/campaign" index element={<DefineCampaign />} />
         </Routes>
       </BrowserRouter>
     </div>

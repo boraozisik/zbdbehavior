@@ -2,7 +2,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import UploadFileOutlinedIcon from "@mui/icons-material/UploadFileOutlined";
-import CelebrationOutlinedIcon from "@mui/icons-material/CelebrationOutlined";
+import CampaignOutlinedIcon from "@mui/icons-material/CampaignOutlined";
 import ConnectWithoutContactOutlinedIcon from "@mui/icons-material/ConnectWithoutContactOutlined";
 import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
 import { ClickAwayListener } from "@mui/material";
@@ -31,6 +31,10 @@ const AppNavbar = (props: Props) => {
     navigate("/charts");
   };
 
+  const handleClickCampaign = () => {
+    navigate("/campaign");
+  };
+
   const about = [
     {
       name: "Potential Sales Excel",
@@ -45,10 +49,11 @@ const AppNavbar = (props: Props) => {
       icon: BarChartOutlinedIcon,
     },
     {
-      name: "Operation3",
-      description: "ZbdBehavior",
-      // onClick: () => router.push("/ZbdBehavior"),
-      icon: CelebrationOutlinedIcon,
+      name: "Define Campaign",
+      description:
+        "Define a campaign that encourages users to buy your products",
+      onClick: handleClickCampaign,
+      icon: CampaignOutlinedIcon,
     },
     {
       name: "Operation3",

@@ -24,7 +24,7 @@ const Header = ({ value, handleChange }: HeaderProps) => {
             </button>
           </div>
           <img
-            src="/static/illustrations/relaxation.svg"
+            src="/static/illustrations/home-cinema.svg"
             alt=""
             style={{ width: "200px", height: "120px" }}
           />
