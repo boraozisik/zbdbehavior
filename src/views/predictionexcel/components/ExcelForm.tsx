@@ -8,14 +8,7 @@ import {
   Grid,
   Stack,
   TextField,
-  Typography,
 } from "@mui/material";
-import React, { useState } from "react";
-import * as XLSXT from "xlsx";
-import NothingFound from "../../../components/app/NothingFound";
-import { primary, secondary, success } from "../../../theme/themeColors";
-import GetTemplate from "./GetTemplate";
-import { get } from "lodash";
 import {
   DataGrid,
   GridColDef,
@@ -25,7 +18,13 @@ import {
   GridToolbarFilterButton,
   GridToolbarQuickFilter,
 } from "@mui/x-data-grid";
+import { get } from "lodash";
+import React, { useState } from "react";
 import XLSX from "sheetjs-style";
+import * as XLSXT from "xlsx";
+import NothingFound from "../../../components/app/NothingFound";
+import { primary, secondary, success } from "../../../theme/themeColors";
+import GetTemplate from "./GetTemplate";
 
 type Props = {};
 
@@ -132,8 +131,6 @@ const ExcelForm = (props: Props) => {
       </GridToolbarContainer>
     );
   }
-
-  console.log("excelDataMain", excelData);
 
   const uploadFile = async () => {
     predictNextSixMonth(selectedFileData);
