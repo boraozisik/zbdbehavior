@@ -214,11 +214,11 @@ const AppNavbar = (props: Props) => {
           </ClickAwayListener>
 
           <button
-            className="text-sm font-inter leading-6 text-blue-400 hover:text-[#fde047] "
-            // onClick={() => router.push("/work")}
+            className="text-medium italic"
+            onClick={handleClickCharts}
             style={{ color: primary.main }}
           >
-            Graphs
+            Charts
           </button>
         </div>
       </nav>

@@ -1,8 +1,12 @@
 import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
 import {
+  Alert,
+  Box,
   Grid,
   IconButton,
   Modal,
+  Snackbar,
+  SnackbarOrigin,
   Stack,
   Tooltip,
   Typography,
@@ -21,8 +25,13 @@ import { primary, secondary } from "../../../theme/themeColors";
 import { ModalStyled } from "../../StyledComponents/ModalStyled";
 import UsersData from "../../users.json";
 import DefineCampaignWithCart from "./DefineCampaignWithCart";
+import { set } from "lodash";
 
 type Props = {};
+
+interface State extends SnackbarOrigin {
+  openBar: boolean;
+}
 
 const companyProducts = [
   "Macbook Pro 14",
@@ -33,6 +42,24 @@ const companyProducts = [
 const UsersTable = (props: Props) => {
   const [open, setOpen] = useState(false);
   const [cartDifference, setCartDifference] = useState<any | null>(null);
+  const [cartData, setCartData] = useState<any | null>(null);
+  const [name, setName] = useState<string>("");
+  const [surname, setSurname] = useState<string>("");
+  const [state, setState] = useState<State>({
+    openBar: false,
+    vertical: "top",
+    horizontal: "center",
+  });
+
+  const { vertical, horizontal, openBar } = state;
+
+  const handleClickSnackbar = (newState: SnackbarOrigin) => () => {
+    setState({ ...newState, openBar: true });
+  };
+
+  const handleCloseSnackbar = () => {
+    setState({ ...state, openBar: false });
+  };
 
   const handleOpen = () => setOpen(true);
 
@@ -46,6 +73,9 @@ const UsersTable = (props: Props) => {
     );
 
     setCartDifference(difference);
+    setCartData(row?.cart);
+    setName(row?.firstName);
+    setSurname(row?.lastName);
   };
 
   const columns: GridColDef[] = [
@@ -168,9 +198,29 @@ const UsersTable = (props: Props) => {
         aria-describedby="modal-location-report"
       >
         <ModalStyled>
-          <DefineCampaignWithCart cartData={cartDifference} />
+          <DefineCampaignWithCart
+            username={name}
+            userSurname={surname}
+            cartData={cartData}
+            cartDifferenceData={cartDifference}
+            handleClose={handleClose}
+            handleClickSnackbar={handleClickSnackbar}
+          />
         </ModalStyled>
       </Modal>
+      <Box sx={{ width: 500 }}>
+        <Snackbar
+          anchorOrigin={{ vertical, horizontal }}
+          autoHideDuration={4000}
+          open={openBar}
+          onClose={handleCloseSnackbar}
+          key={vertical + horizontal}
+        >
+          <Alert severity="success" sx={{ width: "100%" }}>
+            Campaign Defined Successfully !
+          </Alert>
+        </Snackbar>
+      </Box>
     </>
   );
 };
