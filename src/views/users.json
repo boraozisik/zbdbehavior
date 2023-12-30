@@ -3,120 +3,760 @@
     "id": 1,
     "first_name": "Ferrel",
     "last_name": "Peter",
-    "cart": ["Macbook Pro 14"]
+    "cart": ["Macbook Pro 14"],
+    "monthly_spend": [
+      {
+        "Jan": 400,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 550,
+        "May": 300,
+        "Jun": 220,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 300,
+        "Dec": 100
+      }
+    ],
+    "purchasesPerMonth": [
+      {
+        "Jan": 1,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 2,
+        "May": 4,
+        "Jun": 3,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 1,
+        "Dec": 1
+      }
+    ]
   },
   {
     "id": 2,
     "first_name": "Shea",
     "last_name": "Chase",
-    "cart": ["Samsung Galaxy Watch", "JBL Clip 4"]
+    "cart": ["Samsung Galaxy Watch", "JBL Clip 4"],
+    "monthly_spend": [
+      {
+        "Jan": 400,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 550,
+        "May": 300,
+        "Jun": 220,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 300,
+        "Dec": 100
+      }
+    ],
+    "purchasesPerMonth": [
+      {
+        "Jan": 1,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 2,
+        "May": 4,
+        "Jun": 3,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 1,
+        "Dec": 1
+      }
+    ]
   },
   {
     "id": 3,
     "first_name": "Tansy",
     "last_name": "Cluney",
-    "cart": ["JBL Clip 4"]
+    "cart": ["JBL Clip 4"],
+    "monthly_spend": [
+      {
+        "Jan": 400,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 550,
+        "May": 300,
+        "Jun": 220,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 300,
+        "Dec": 100
+      }
+    ],
+    "purchasesPerMonth": [
+      {
+        "Jan": 1,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 2,
+        "May": 4,
+        "Jun": 3,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 1,
+        "Dec": 1
+      }
+    ]
   },
   {
     "id": 4,
     "first_name": "Riane",
     "last_name": "Sangster",
-    "cart": ["Samsung Galaxy Watch"]
+    "cart": ["Samsung Galaxy Watch"],
+    "monthly_spend": [
+      {
+        "Jan": 400,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 550,
+        "May": 300,
+        "Jun": 220,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 300,
+        "Dec": 100
+      }
+    ],
+    "purchasesPerMonth": [
+      {
+        "Jan": 1,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 2,
+        "May": 4,
+        "Jun": 3,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 1,
+        "Dec": 1
+      }
+    ]
   },
   {
     "id": 5,
     "first_name": "Kiel",
     "last_name": "Mitkcov",
-    "cart": ["Macbook Pro 14", "Samsung Galaxy Watch"]
+    "cart": ["Macbook Pro 14", "Samsung Galaxy Watch"],
+    "monthly_spend": [
+      {
+        "Jan": 400,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 550,
+        "May": 300,
+        "Jun": 220,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 300,
+        "Dec": 100
+      }
+    ],
+    "purchasesPerMonth": [
+      {
+        "Jan": 1,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 2,
+        "May": 4,
+        "Jun": 3,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 1,
+        "Dec": 1
+      }
+    ]
   },
   {
     "id": 6,
     "first_name": "Abbie",
     "last_name": "Van der Kruis",
-    "cart": ["Macbook Pro 14", "JBL Clip 4"]
+    "cart": ["Macbook Pro 14", "JBL Clip 4"],
+    "monthly_spend": [
+      {
+        "Jan": 400,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 550,
+        "May": 300,
+        "Jun": 220,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 300,
+        "Dec": 100
+      }
+    ],
+    "purchasesPerMonth": [
+      {
+        "Jan": 1,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 2,
+        "May": 4,
+        "Jun": 3,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 1,
+        "Dec": 1
+      }
+    ]
   },
   {
     "id": 7,
     "first_name": "Godfrey",
     "last_name": "Zupa",
-    "cart": ["Macbook Pro 14"]
+    "cart": ["Macbook Pro 14"],
+    "monthly_spend": [
+      {
+        "Jan": 400,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 550,
+        "May": 300,
+        "Jun": 220,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 300,
+        "Dec": 100
+      }
+    ],
+    "purchasesPerMonth": [
+      {
+        "Jan": 1,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 2,
+        "May": 4,
+        "Jun": 3,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 1,
+        "Dec": 1
+      }
+    ]
   },
   {
     "id": 8,
     "first_name": "L;urette",
     "last_name": "Clue",
-    "cart": ["Macbook Pro 14", "Samsung Galaxy Watch", "JBL Clip 4"]
+    "cart": ["Macbook Pro 14", "Samsung Galaxy Watch", "JBL Clip 4"],
+    "monthly_spend": [
+      {
+        "Jan": 400,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 550,
+        "May": 300,
+        "Jun": 220,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 300,
+        "Dec": 100
+      }
+    ],
+    "purchasesPerMonth": [
+      {
+        "Jan": 1,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 2,
+        "May": 4,
+        "Jun": 3,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 1,
+        "Dec": 1
+      }
+    ]
   },
   {
     "id": 9,
     "first_name": "Arlen",
     "last_name": "Dumsday",
-    "cart": ["Samsung Galaxy Watch"]
+    "cart": ["Samsung Galaxy Watch"],
+    "monthly_spend": [
+      {
+        "Jan": 400,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 550,
+        "May": 300,
+        "Jun": 220,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 300,
+        "Dec": 100
+      }
+    ],
+    "purchasesPerMonth": [
+      {
+        "Jan": 1,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 2,
+        "May": 4,
+        "Jun": 3,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 1,
+        "Dec": 1
+      }
+    ]
   },
   {
     "id": 10,
     "first_name": "Monika",
     "last_name": "Bugbird",
-    "cart": ["JBL Clip 4"]
+    "cart": ["JBL Clip 4"],
+    "monthly_spend": [
+      {
+        "Jan": 400,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 550,
+        "May": 300,
+        "Jun": 220,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 300,
+        "Dec": 100
+      }
+    ],
+    "purchasesPerMonth": [
+      {
+        "Jan": 1,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 2,
+        "May": 4,
+        "Jun": 3,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 1,
+        "Dec": 1
+      }
+    ]
   },
   {
     "id": 11,
     "first_name": "Bay",
     "last_name": "Swedeland",
-    "cart": ["Macbook Pro 14", "Samsung Galaxy Watch", "JBL Clip 4"]
+    "cart": ["Macbook Pro 14", "Samsung Galaxy Watch", "JBL Clip 4"],
+    "monthly_spend": [
+      {
+        "Jan": 400,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 550,
+        "May": 300,
+        "Jun": 220,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 300,
+        "Dec": 100
+      }
+    ],
+    "purchasesPerMonth": [
+      {
+        "Jan": 1,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 2,
+        "May": 4,
+        "Jun": 3,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 1,
+        "Dec": 1
+      }
+    ]
   },
   {
     "id": 12,
     "first_name": "Ingrim",
     "last_name": "Chatfield",
-    "cart": ["Macbook Pro 14"]
+    "cart": ["Macbook Pro 14"],
+    "monthly_spend": [
+      {
+        "Jan": 400,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 550,
+        "May": 300,
+        "Jun": 220,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 300,
+        "Dec": 100
+      }
+    ],
+    "purchasesPerMonth": [
+      {
+        "Jan": 1,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 2,
+        "May": 4,
+        "Jun": 3,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 1,
+        "Dec": 1
+      }
+    ]
   },
   {
     "id": 13,
     "first_name": "Selig",
     "last_name": "Boother",
-    "cart": ["Samsung Galaxy Watch"]
+    "cart": ["Samsung Galaxy Watch"],
+    "monthly_spend": [
+      {
+        "Jan": 400,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 550,
+        "May": 300,
+        "Jun": 220,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 300,
+        "Dec": 100
+      }
+    ],
+    "purchasesPerMonth": [
+      {
+        "Jan": 1,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 2,
+        "May": 4,
+        "Jun": 3,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 1,
+        "Dec": 1
+      }
+    ]
   },
   {
     "id": 14,
     "first_name": "Tomkin",
     "last_name": "Neame",
-    "cart": ["JBL Clip 4"]
+    "cart": ["JBL Clip 4"],
+    "monthly_spend": [
+      {
+        "Jan": 400,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 550,
+        "May": 300,
+        "Jun": 220,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 300,
+        "Dec": 100
+      }
+    ],
+    "purchasesPerMonth": [
+      {
+        "Jan": 1,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 2,
+        "May": 4,
+        "Jun": 3,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 1,
+        "Dec": 1
+      }
+    ]
   },
   {
     "id": 15,
     "first_name": "Odette",
     "last_name": "Hathway",
-    "cart": ["JBL Clip 4"]
+    "cart": ["JBL Clip 4"],
+    "monthly_spend": [
+      {
+        "Jan": 400,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 550,
+        "May": 300,
+        "Jun": 220,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 300,
+        "Dec": 100
+      }
+    ],
+    "purchasesPerMonth": [
+      {
+        "Jan": 1,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 2,
+        "May": 4,
+        "Jun": 3,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 1,
+        "Dec": 1
+      }
+    ]
   },
   {
     "id": 16,
     "first_name": "Lenette",
     "last_name": "Halpeine",
-    "cart": ["Samsung Galaxy Watch"]
+    "cart": ["Samsung Galaxy Watch"],
+    "monthly_spend": [
+      {
+        "Jan": 400,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 550,
+        "May": 300,
+        "Jun": 220,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 300,
+        "Dec": 100
+      }
+    ],
+    "purchasesPerMonth": [
+      {
+        "Jan": 1,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 2,
+        "May": 4,
+        "Jun": 3,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 1,
+        "Dec": 1
+      }
+    ]
   },
   {
     "id": 17,
     "first_name": "Connor",
     "last_name": "Kenion",
-    "cart": ["Macbook Pro 14"]
+    "cart": ["Macbook Pro 14"],
+    "monthly_spend": [
+      {
+        "Jan": 400,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 550,
+        "May": 300,
+        "Jun": 220,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 300,
+        "Dec": 100
+      }
+    ],
+    "purchasesPerMonth": [
+      {
+        "Jan": 1,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 2,
+        "May": 4,
+        "Jun": 3,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 1,
+        "Dec": 1
+      }
+    ]
   },
   {
     "id": 18,
     "first_name": "Onofredo",
     "last_name": "Perello",
-    "cart": ["Samsung Galaxy Watch"]
+    "cart": ["Samsung Galaxy Watch"],
+    "monthly_spend": [
+      {
+        "Jan": 400,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 550,
+        "May": 300,
+        "Jun": 220,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 300,
+        "Dec": 100
+      }
+    ],
+    "purchasesPerMonth": [
+      {
+        "Jan": 1,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 2,
+        "May": 4,
+        "Jun": 3,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 1,
+        "Dec": 1
+      }
+    ]
   },
   {
     "id": 19,
     "first_name": "Reginauld",
     "last_name": "Cosstick",
-    "cart": ["Macbook Pro 14", "JBL Clip 4"]
+    "cart": ["Macbook Pro 14", "JBL Clip 4"],
+    "monthly_spend": [
+      {
+        "Jan": 400,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 550,
+        "May": 300,
+        "Jun": 220,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 300,
+        "Dec": 100
+      }
+    ],
+    "purchasesPerMonth": [
+      {
+        "Jan": 1,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 2,
+        "May": 4,
+        "Jun": 3,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 1,
+        "Dec": 1
+      }
+    ]
   },
   {
     "id": 20,
     "first_name": "Lawry",
     "last_name": "McDuffie",
-    "cart": ["Macbook Pro 14", "Samsung Galaxy Watch"]
+    "cart": ["Macbook Pro 14", "Samsung Galaxy Watch"],
+    "monthly_spend": [
+      {
+        "Jan": 400,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 550,
+        "May": 300,
+        "Jun": 220,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 300,
+        "Dec": 100
+      }
+    ],
+    "purchasesPerMonth": [
+      {
+        "Jan": 1,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 2,
+        "May": 4,
+        "Jun": 3,
+        "Jul": 0,
+        "Aug": 0,
+        "Sep": 0,
+        "Oct": 0,
+        "Nov": 1,
+        "Dec": 1
+      }
+    ]
   }
 ]

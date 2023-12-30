@@ -5,6 +5,7 @@ import UploadFileOutlinedIcon from "@mui/icons-material/UploadFileOutlined";
 import CampaignOutlinedIcon from "@mui/icons-material/CampaignOutlined";
 import ConnectWithoutContactOutlinedIcon from "@mui/icons-material/ConnectWithoutContactOutlined";
 import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
+import LoyaltyOutlinedIcon from "@mui/icons-material/LoyaltyOutlined";
 import { ClickAwayListener } from "@mui/material";
 import { Fragment, useEffect, useState } from "react";
 import { primary } from "../../theme/themeColors";
@@ -35,6 +36,10 @@ const AppNavbar = (props: Props) => {
     navigate("/campaign");
   };
 
+  const handleClickLoyaltyMeter = () => {
+    navigate("/loyaltymeter");
+  };
+
   const about = [
     {
       name: "Potential Sales Excel",
@@ -56,10 +61,11 @@ const AppNavbar = (props: Props) => {
       icon: CampaignOutlinedIcon,
     },
     {
-      name: "Operation3",
-      description: "ZbdBehavior",
-      // onClick: () => router.push("/ZbdBehavior"),
-      icon: ConnectWithoutContactOutlinedIcon,
+      name: "Loyalty Meter",
+      description:
+        "Find disloyal users, offer special opportunity, win them back.",
+      onClick: handleClickLoyaltyMeter,
+      icon: LoyaltyOutlinedIcon,
     },
     {
       name: "Operation4",

@@ -6,6 +6,7 @@ import NoPage from "./views/NoPage";
 import PredictionExcel from "./views/predictionexcel/PredictionExcel";
 import Charts from "./views/charts/Charts";
 import DefineCampaign from "./views/defineCampaign/DefineCampaign";
+import LoyaltyMeter from "./views/loyaltymeter/LoyaltyMeter";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/predictionexcel" index element={<PredictionExcel />} />
           <Route path="/charts" index element={<Charts />} />
           <Route path="/campaign" index element={<DefineCampaign />} />
+          <Route path="/loyaltymeter" index element={<LoyaltyMeter />} />
         </Routes>
       </BrowserRouter>
     </div>

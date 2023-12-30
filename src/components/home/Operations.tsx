@@ -18,6 +18,10 @@ const Operations = (props: Props) => {
   const handleClickCampaign = () => {
     navigate("/campaign");
   };
+
+  const handleClickLoyaltyMeter = () => {
+    navigate("/loyaltymeter");
+  };
   return (
     <div className="bg-gray-800">
       <section>
@@ -170,20 +174,26 @@ const Operations = (props: Props) => {
             </div>
             <div className="space-y-3">
               <span className="inline-block p-3  bg-gray-200 rounded-full">
-                <AcUnitIcon sx={{ color: primary.main }} />
+                <img
+                  src="/static/icons/loyalty-icon.svg"
+                  alt=""
+                  style={{ width: "28px", height: "28px" }}
+                />
               </span>
 
               <h1 className="text-xl font-semibold capitalize text-gray-200 italic">
-                Copy & paste components
+                Loyalty Meter
               </h1>
 
               <p className="text-gray-400 italic">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Provident ab nulla quod dignissimos vel non corrupti doloribus
-                voluptatum eveniet
+                This operation helps you identify disloyal users in their
+                purchases and define additional opportunities for them. With
+                this operation, it can be much easier for you to win back your
+                disloyal users.
               </p>
 
               <button
+                onClick={handleClickLoyaltyMeter}
                 className="inline-flex items-center -mx-1 text-sm capitalize transition-colors duration-300 transform  hover:underline"
                 style={{ color: primary.main }}
               >
