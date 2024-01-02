@@ -1,4 +1,4 @@
-import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
+import EditNoteIcon from "@mui/icons-material/EditNote";
 import {
   Alert,
   Box,
@@ -28,6 +28,20 @@ import UsersData from "../../users.json";
 import { set } from "lodash";
 
 type Props = {};
+
+interface MonthlySpend {
+  [key: string]: {
+    [key: string]: number;
+  };
+}
+interface User {
+  id: number;
+  first_name: string;
+  last_name: string;
+  cart: string[];
+  monthly_spend: MonthlySpend[];
+  purchasesPerMonth: MonthlySpend[];
+}
 
 interface State extends SnackbarOrigin {
   openBar: boolean;
@@ -67,10 +81,52 @@ const DisloyalUserTable = (props: Props) => {
     setOpen(false);
   };
 
-  const findDisloyalUsers = (usersData: any) => {
+  const findAverageSpendForUser = (user: User) => {
+    let averageSpend = 0;
+
+    const monthlySpendArray = user.monthly_spend[0]["2023"];
+    const monthsWithSpend = Object.keys(monthlySpendArray).filter(
+      (month) => monthlySpendArray[month] > 0
+    );
+    const totalSpend = monthsWithSpend.reduce(
+      (sum, month) => sum + monthlySpendArray[month],
+      0
+    );
+    averageSpend =
+      monthsWithSpend.length > 0 ? totalSpend / monthsWithSpend.length : 0;
+
+    // return Math.floor(averageSpend);
+    return averageSpend;
+  };
+
+  const findAveragePurchacesForUser = (user: User) => {
+    let averagePurchaces = 0;
+
+    const monthlyPurchacesArray = user.purchasesPerMonth[0]["2023"];
+    const monthsWithPurchaces = Object.keys(monthlyPurchacesArray).filter(
+      (month) => monthlyPurchacesArray[month] > 0
+    );
+    const totalPurchaces = monthsWithPurchaces.reduce(
+      (sum, month) => sum + monthlyPurchacesArray[month],
+      0
+    );
+    averagePurchaces =
+      monthsWithPurchaces.length > 0
+        ? totalPurchaces / monthsWithPurchaces.length
+        : 0;
+
+    // return Math.floor(averagePurchaces);
+    return averagePurchaces;
+  };
+
+  console.log("AVVVGGGGGG", findAverageSpendForUser(UsersData[0]));
+
+  console.log("PURRRRRRRRR", findAveragePurchacesForUser(UsersData[0]));
+
+  const findDisloyalUsers = (usersData: User[]) => {
     const disloyalUsers = [];
 
-    usersData.map((user: any) => {
+    usersData.map((user: User) => {
       let averageSpend = 0;
       let averagePurchaces = 0;
 
@@ -132,53 +188,27 @@ const DisloyalUserTable = (props: Props) => {
       field: "monthlySpend",
       headerName: "Avg Monthly Spend",
       flex: 1,
-      renderCell: (params) => (
-        <Stack
-          direction={"row"}
-          alignItems={"center"}
-          justifyContent={"center"}
-        >
-          {params?.value.map((data: any) => (
-            <Typography key={data} variant="body1">
-              {data + ","}
-            </Typography>
-          ))}
-        </Stack>
-      ),
     },
     {
       field: "monthlyPurchaces",
       headerName: "Avg Purchaces Per Month",
       flex: 1,
-      renderCell: (params) => (
-        <Stack
-          direction={"row"}
-          alignItems={"center"}
-          justifyContent={"center"}
-        >
-          {params?.value.map((data: any) => (
-            <Typography key={data} variant="body1">
-              {data + ","}
-            </Typography>
-          ))}
-        </Stack>
-      ),
     },
     {
       field: "id",
       headerName: "Actions",
       width: 100,
       renderCell: (params) => (
-        <Tooltip title="Define a Campaign" placement="top">
+        <Tooltip title="Offer a special opportunity" placement="top">
           <IconButton
-            aria-label="define-campaign"
+            aria-label="offer-opp"
             onClick={() => {
               handleDefineCampaignClick(params.row);
 
               handleOpen();
             }}
           >
-            <AutoFixHighIcon sx={{ color: primary.main }} />
+            <EditNoteIcon sx={{ color: primary.main }} />
           </IconButton>
         </Tooltip>
       ),
@@ -189,8 +219,8 @@ const DisloyalUserTable = (props: Props) => {
     id: index + 1,
     firstName: data.first_name,
     lastName: data.last_name,
-    monthlySpend: data.monthly_spend,
-    monthlyPurchaces: data.purchasesPerMonth,
+    monthlySpend: findAverageSpendForUser(data),
+    monthlyPurchaces: findAveragePurchacesForUser(data),
   }));
 
   function CustomToolbar() {
