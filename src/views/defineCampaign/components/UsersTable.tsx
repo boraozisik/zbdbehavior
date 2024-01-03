@@ -26,18 +26,13 @@ import { ModalStyled } from "../../StyledComponents/ModalStyled";
 import UsersData from "../../users.json";
 import DefineCampaignWithCart from "./DefineCampaignWithCart";
 import { set } from "lodash";
+import { companyProducts } from "../../../constants/constants";
 
 type Props = {};
 
 interface State extends SnackbarOrigin {
   openBar: boolean;
 }
-
-const companyProducts = [
-  "Macbook Pro 14",
-  "Samsung Galaxy Watch",
-  "JBL Clip 4",
-];
 
 const UsersTable = (props: Props) => {
   const [open, setOpen] = useState(false);

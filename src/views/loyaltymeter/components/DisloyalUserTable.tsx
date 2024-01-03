@@ -2,6 +2,7 @@ import EditNoteIcon from "@mui/icons-material/EditNote";
 import {
   Alert,
   Box,
+  Button,
   Grid,
   IconButton,
   Modal,
@@ -24,8 +25,7 @@ import { useState } from "react";
 import { primary, secondary } from "../../../theme/themeColors";
 import { ModalStyled } from "../../StyledComponents/ModalStyled";
 import UsersData from "../../users.json";
-
-import { set } from "lodash";
+import OfferOpportunityModal from "./OfferOpportunityModal";
 
 type Props = {};
 
@@ -47,16 +47,49 @@ interface State extends SnackbarOrigin {
   openBar: boolean;
 }
 
-const companyProducts = [
-  "Macbook Pro 14",
-  "Samsung Galaxy Watch",
-  "JBL Clip 4",
-];
+const findDisloyalUsers = (usersData: User[]) => {
+  const disloyalUsers: User[] = [];
+
+  usersData.map((user: User) => {
+    let averageSpend = 0;
+    let averagePurchaces = 0;
+
+    const monthlySpendArray = user.monthly_spend[0]["2023"];
+    const monthsWithSpend = Object.keys(monthlySpendArray).filter(
+      (month) => monthlySpendArray[month] > 0
+    );
+    const totalSpend = monthsWithSpend.reduce(
+      (sum, month) => sum + monthlySpendArray[month],
+      0
+    );
+    averageSpend =
+      monthsWithSpend.length > 0 ? totalSpend / monthsWithSpend.length : 0;
+
+    const monthlyPurchacesArray = user.purchasesPerMonth[0]["2023"];
+    const monthsWithPurchaces = Object.keys(monthlyPurchacesArray).filter(
+      (month) => monthlyPurchacesArray[month] > 0
+    );
+    const totalPurchaces = monthsWithPurchaces.reduce(
+      (sum, month) => sum + monthlyPurchacesArray[month],
+      0
+    );
+    averagePurchaces =
+      monthsWithPurchaces.length > 0
+        ? totalPurchaces / monthsWithPurchaces.length
+        : 0;
+
+    if (averageSpend < 300 || averagePurchaces < 1.5) {
+      disloyalUsers.push(user);
+    }
+  });
+
+  return disloyalUsers;
+};
 
 const DisloyalUserTable = (props: Props) => {
   const [open, setOpen] = useState(false);
-  const [cartDifference, setCartDifference] = useState<any | null>(null);
-  const [cartData, setCartData] = useState<any | null>(null);
+  const [openForAll, setOpenForAll] = useState(false);
+  const [averages, setAverages] = useState<number[]>([]);
   const [name, setName] = useState<string>("");
   const [surname, setSurname] = useState<string>("");
   const [state, setState] = useState<State>({
@@ -66,6 +99,8 @@ const DisloyalUserTable = (props: Props) => {
   });
 
   const { vertical, horizontal, openBar } = state;
+
+  const disloyalUsers = findDisloyalUsers(UsersData);
 
   const handleClickSnackbar = (newState: SnackbarOrigin) => () => {
     setState({ ...newState, openBar: true });
@@ -79,6 +114,12 @@ const DisloyalUserTable = (props: Props) => {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleOpenForAll = () => setOpenForAll(true);
+
+  const handleCloseForAll = () => {
+    setOpenForAll(false);
   };
 
   const findAverageSpendForUser = (user: User) => {
@@ -95,8 +136,8 @@ const DisloyalUserTable = (props: Props) => {
     averageSpend =
       monthsWithSpend.length > 0 ? totalSpend / monthsWithSpend.length : 0;
 
-    // return Math.floor(averageSpend);
-    return averageSpend;
+    return Math.floor(averageSpend);
+    // return averageSpend;
   };
 
   const findAveragePurchacesForUser = (user: User) => {
@@ -115,63 +156,25 @@ const DisloyalUserTable = (props: Props) => {
         ? totalPurchaces / monthsWithPurchaces.length
         : 0;
 
-    // return Math.floor(averagePurchaces);
-    return averagePurchaces;
+    return Math.floor(averagePurchaces);
+    // return averagePurchaces;
   };
 
   console.log("AVVVGGGGGG", findAverageSpendForUser(UsersData[0]));
 
   console.log("PURRRRRRRRR", findAveragePurchacesForUser(UsersData[0]));
 
-  const findDisloyalUsers = (usersData: User[]) => {
-    const disloyalUsers = [];
-
-    usersData.map((user: User) => {
-      let averageSpend = 0;
-      let averagePurchaces = 0;
-
-      const monthlySpendArray = user.monthly_spend[0]["2023"];
-      const monthsWithSpend = Object.keys(monthlySpendArray).filter(
-        (month) => monthlySpendArray[month] > 0
-      );
-      const totalSpend = monthsWithSpend.reduce(
-        (sum, month) => sum + monthlySpendArray[month],
-        0
-      );
-      averageSpend =
-        monthsWithSpend.length > 0 ? totalSpend / monthsWithSpend.length : 0;
-
-      const monthlyPurchacesArray = user.purchasesPerMonth[0]["2023"];
-      const monthsWithPurchaces = Object.keys(monthlyPurchacesArray).filter(
-        (month) => monthlyPurchacesArray[month] > 0
-      );
-      const totalPurchaces = monthsWithPurchaces.reduce(
-        (sum, month) => sum + monthlyPurchacesArray[month],
-        0
-      );
-      averagePurchaces =
-        monthsWithPurchaces.length > 0
-          ? totalPurchaces / monthsWithPurchaces.length
-          : 0;
-
-      console.log("averageSpend", averageSpend);
-
-      console.log("averagePurchaces", averagePurchaces);
-    });
-  };
-
-  findDisloyalUsers(UsersData);
-
-  const handleDefineCampaignClick = (row: any) => {
-    const difference = companyProducts.filter(
-      (item) => !row?.cart.includes(item)
-    );
-
-    setCartDifference(difference);
-    setCartData(row?.cart);
+  const handleOfferOppClick = (row: any) => {
+    console.log("rowwwww", row);
+    const averagesData: number[] = [];
+    averagesData.push(row.monthlySpend);
+    averagesData.push(row.monthlyPurchaces);
     setName(row?.firstName);
     setSurname(row?.lastName);
+    setAverages(averagesData);
   };
+
+  console.log("AVERAGESSS", averages);
 
   const columns: GridColDef[] = [
     {
@@ -203,7 +206,7 @@ const DisloyalUserTable = (props: Props) => {
           <IconButton
             aria-label="offer-opp"
             onClick={() => {
-              handleDefineCampaignClick(params.row);
+              handleOfferOppClick(params.row);
 
               handleOpen();
             }}
@@ -215,7 +218,7 @@ const DisloyalUserTable = (props: Props) => {
     },
   ];
 
-  const rows = UsersData.map((data: any, index: number) => ({
+  const rows = disloyalUsers.map((data: any, index: number) => ({
     id: index + 1,
     firstName: data.first_name,
     lastName: data.last_name,
@@ -232,8 +235,26 @@ const DisloyalUserTable = (props: Props) => {
         <GridToolbarFilterButton sx={{ color: primary.main }} />
         <GridToolbarDensitySelector sx={{ color: primary.main }} />
 
-        <Stack direction={"row"} ml={"auto"} width={"15%"}>
+        <Stack direction={"row"} ml={"auto"} width={"25%"} gap={2}>
           <GridToolbarQuickFilter />
+          <Button
+            className="font-semibold italic"
+            variant="contained"
+            sx={{
+              backgroundColor: primary[900],
+              "&:hover": {
+                bgcolor: primary.main,
+              },
+              textTransform: "capitalize",
+              height: 30,
+              width: 300,
+            }}
+            onClick={() => {
+              handleOpenForAll();
+            }}
+          >
+            Offer Opportunity to All
+          </Button>
         </Stack>
       </GridToolbarContainer>
     );
@@ -279,19 +300,31 @@ const DisloyalUserTable = (props: Props) => {
           />
         </Grid>
       </Grid>
-      {/* <Modal
+      <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-location-report"
         aria-describedby="modal-location-report"
       >
         <ModalStyled>
-          <DefineCampaignWithCart
+          <OfferOpportunityModal
             username={name}
             userSurname={surname}
-            cartData={cartData}
-            cartDifferenceData={cartDifference}
+            averages={averages}
             handleClose={handleClose}
+            handleClickSnackbar={handleClickSnackbar}
+          />
+        </ModalStyled>
+      </Modal>
+      <Modal
+        open={openForAll}
+        onClose={handleCloseForAll}
+        aria-labelledby="modal-offer"
+        aria-describedby="modal-offer"
+      >
+        <ModalStyled>
+          <OfferOpportunityModal
+            handleClose={handleCloseForAll}
             handleClickSnackbar={handleClickSnackbar}
           />
         </ModalStyled>
@@ -308,7 +341,7 @@ const DisloyalUserTable = (props: Props) => {
             Campaign Defined Successfully !
           </Alert>
         </Snackbar>
-      </Box> */}
+      </Box>
     </>
   );
 };
