@@ -160,12 +160,7 @@ const DisloyalUserTable = (props: Props) => {
     // return averagePurchaces;
   };
 
-  console.log("AVVVGGGGGG", findAverageSpendForUser(UsersData[0]));
-
-  console.log("PURRRRRRRRR", findAveragePurchacesForUser(UsersData[0]));
-
   const handleOfferOppClick = (row: any) => {
-    console.log("rowwwww", row);
     const averagesData: number[] = [];
     averagesData.push(row.monthlySpend);
     averagesData.push(row.monthlyPurchaces);
@@ -173,8 +168,6 @@ const DisloyalUserTable = (props: Props) => {
     setSurname(row?.lastName);
     setAverages(averagesData);
   };
-
-  console.log("AVERAGESSS", averages);
 
   const columns: GridColDef[] = [
     {
@@ -222,7 +215,7 @@ const DisloyalUserTable = (props: Props) => {
     id: index + 1,
     firstName: data.first_name,
     lastName: data.last_name,
-    monthlySpend: findAverageSpendForUser(data),
+    monthlySpend: "$ " + findAverageSpendForUser(data),
     monthlyPurchaces: findAveragePurchacesForUser(data),
   }));
 
@@ -260,7 +253,6 @@ const DisloyalUserTable = (props: Props) => {
     );
   }
 
-  console.log("userdata", UsersData);
   return (
     <>
       <Grid container mt={8}>
@@ -338,7 +330,7 @@ const DisloyalUserTable = (props: Props) => {
           key={vertical + horizontal}
         >
           <Alert severity="success" sx={{ width: "100%" }}>
-            Campaign Defined Successfully !
+            Successfully offered a special opportunity !
           </Alert>
         </Snackbar>
       </Box>

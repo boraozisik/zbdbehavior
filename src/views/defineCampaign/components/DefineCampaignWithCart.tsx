@@ -47,11 +47,7 @@ const DefineCampaignWithCart = ({
   handleClickSnackbar,
 }: DefineCampaignWithCartProps) => {
   const [products, setProducts] = React.useState<string[]>([]);
-  const [campaignAmount, setCampaignAmount] = React.useState<string>("0%");
-
-  console.log("cartDifferenceData", cartDifferenceData);
-  console.log("products", products);
-  console.log("amount", campaignAmount);
+  const [campaignAmount, setCampaignAmount] = React.useState<string>("");
 
   const handleChange = (event: SelectChangeEvent<typeof products>) => {
     const {
@@ -61,7 +57,7 @@ const DefineCampaignWithCart = ({
   };
 
   const handleAmountChange = (event: any) => {
-    setCampaignAmount(event.target.value);
+    setCampaignAmount(event.target.value as string);
   };
 
   return (
@@ -111,6 +107,8 @@ const DefineCampaignWithCart = ({
         <TextFieldStyled
           label="Campaign Amount ( ?% )"
           value={campaignAmount}
+          type="number"
+          InputProps={{ inputProps: { min: 0 } }}
           onChange={handleAmountChange}
           fullWidth
         />

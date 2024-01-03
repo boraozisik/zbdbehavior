@@ -146,7 +146,6 @@ const UsersTable = (props: Props) => {
     );
   }
 
-  console.log("userdata", UsersData);
   return (
     <>
       <Grid container mt={8}>

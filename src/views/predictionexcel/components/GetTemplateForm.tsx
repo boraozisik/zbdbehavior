@@ -49,8 +49,6 @@ const COLUMN_STYLES = [
 ];
 
 const GetTemplateForm = ({ formData, setFormData }: Props) => {
-  console.log("formData", formData);
-
   const handleTextFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, productName: e.target.value });
   };
@@ -62,8 +60,6 @@ const GetTemplateForm = ({ formData, setFormData }: Props) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     prepareTemplate(formData);
-
-    console.log("Gönderilen Veri:", formData);
   };
 
   const prepareTemplate = (formData: FormData) => {

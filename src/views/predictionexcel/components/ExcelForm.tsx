@@ -301,8 +301,6 @@ const ExcelForm = (props: Props) => {
     const nextSixMonthsArray: ExcelTemplate[] = [];
     const dataAfterStockArrange = calculateStockNeedByIncreaseAmount(excelData);
 
-    console.log("dataAfterStockArrange", dataAfterStockArrange);
-
     for (let index = 0; index < dataAfterStockArrange.length; index++) {
       let splittedDate;
 
@@ -325,7 +323,7 @@ const ExcelForm = (props: Props) => {
       if (Number(splittedDate[0]) === 1 && Number(splittedDate[1]) === 1) {
         splittedDate[2] = String(Number(splittedDate[2]) + 1);
       }
-      console.log(`${index}`, dataAfterStockArrange[index].COUNT);
+
       nextSixMonthsArray.push({
         ID: String(index + 1),
         DATE: splittedDate.join("/"),
@@ -334,16 +332,10 @@ const ExcelForm = (props: Props) => {
       });
     }
 
-    console.log("nextSixMonthsArray", nextSixMonthsArray);
-
     const dataAfterSalaryWeeks = applySalaryWeekIncrease(nextSixMonthsArray);
-
-    console.log("dataAfterSalaryWeeks", dataAfterSalaryWeeks);
 
     const dataAfterNovemberDiscount =
       applyIfNovemberDiscount(dataAfterSalaryWeeks);
-
-    console.log("dataAfterNovemberDiscount", dataAfterNovemberDiscount);
 
     setExcelData(dataAfterNovemberDiscount);
     setSuccess(true);
@@ -353,10 +345,10 @@ const ExcelForm = (props: Props) => {
   const selectFile = async (e: any) => {
     let excelData: ExcelTemplate[] = [];
     const file = e.target.files[0];
-    console.log("file", e.target.files[0]);
+
     const data = await file.arrayBuffer();
     const workbook = XLSXT.read(data);
-    console.log("workbook", workbook);
+
     workbook.SheetNames.map((worksheetName: string) => {
       const worksheet = workbook.Sheets[worksheetName];
 
@@ -369,8 +361,6 @@ const ExcelForm = (props: Props) => {
           COUNT: Number(get(jsonData[i], "COUNT")),
         });
       }
-
-      console.log("json data", jsonData);
     });
     setSelectedFileData(excelData);
   };

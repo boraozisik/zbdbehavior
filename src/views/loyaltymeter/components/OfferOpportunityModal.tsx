@@ -1,8 +1,12 @@
 import {
+  Button,
+  Checkbox,
   Divider,
   FormControl,
   InputLabel,
+  ListItemText,
   MenuItem,
+  OutlinedInput,
   Select,
   SelectChangeEvent,
   SnackbarOrigin,
@@ -10,7 +14,9 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
-import { specialOffers } from "../../../constants/constants";
+import { companyProducts, specialOffers } from "../../../constants/constants";
+import { TextFieldStyled } from "../../StyledComponents/TextFieldStyled";
+import { grey, primary, secondary } from "../../../theme/themeColors";
 
 type Props = {
   username?: string;
@@ -18,6 +24,17 @@ type Props = {
   averages?: number[];
   handleClose: () => void;
   handleClickSnackbar: (newState: SnackbarOrigin) => () => void;
+};
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
+  },
 };
 
 const OfferOpportunityModal = ({
@@ -28,11 +45,24 @@ const OfferOpportunityModal = ({
   username,
 }: Props) => {
   const [offer, setOffer] = React.useState("");
+  const [discount, setDiscount] = React.useState("");
+  const [products, setProducts] = React.useState<string[]>([]);
 
   const handleChange = (event: SelectChangeEvent) => {
     setOffer(event.target.value as string);
   };
-  console.log("offer", offer);
+
+  const handleChangeProducts = (event: SelectChangeEvent<typeof products>) => {
+    const {
+      target: { value },
+    } = event;
+    setProducts(typeof value === "string" ? value.split(",") : value);
+  };
+
+  const handleDiscountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setDiscount(e.target.value as string);
+  };
+
   return (
     <div>
       {averages && userSurname && userSurname ? (
@@ -75,20 +105,107 @@ const OfferOpportunityModal = ({
           <Divider />
         </Stack>
       )}
-      <FormControl fullWidth sx={{ mt: 3 }}>
-        <InputLabel id="demo-simple-select-label">Offer</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={offer}
-          label="Age"
-          onChange={handleChange}
+      <Stack
+        direction={"column"}
+        gap={2}
+        alignItems={"center"}
+        justifyContent={"center"}
+        mt={3}
+      >
+        <FormControl fullWidth>
+          <InputLabel id="demo-simple-select-label">Offer</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={offer}
+            label="Age"
+            onChange={handleChange}
+          >
+            {specialOffers.map((offer) => (
+              <MenuItem value={offer.id}>{offer.offer}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+        {(offer === "3" || offer === "4") && (
+          <FormControl sx={{ width: "100%" }}>
+            <InputLabel id="multiple-checkbox-label">Product</InputLabel>
+            <Select
+              fullWidth
+              labelId="multiple-checkbox-label"
+              id="multiple-checkbox"
+              multiple
+              value={products}
+              onChange={handleChangeProducts}
+              input={<OutlinedInput label="Product" />}
+              renderValue={(selected) => selected.join(", ")}
+              MenuProps={MenuProps}
+            >
+              {companyProducts.map((product) => (
+                <MenuItem key={product} value={product}>
+                  <Checkbox checked={products.indexOf(product) > -1} />
+                  <ListItemText primary={product} />
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        )}
+        <TextFieldStyled
+          label={
+            offer === "1" || offer === "3"
+              ? "%?"
+              : offer === "2" || offer === "4"
+              ? "$?"
+              : "Offer Amount"
+          }
+          value={discount}
+          type="number"
+          InputProps={{ inputProps: { min: 0 } }}
+          onChange={handleDiscountChange}
+          fullWidth
+          disabled={offer === ""}
+        />
+        <Stack
+          direction={"row"}
+          alignItems={"center"}
+          justifyContent={"flex-end"}
+          gap={1}
         >
-          {specialOffers.map((offer) => (
-            <MenuItem value={offer.id}>{offer.offer}</MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+          <Button
+            variant="outlined"
+            component="label"
+            className="font-semibold italic"
+            sx={{
+              color: grey.textBlack,
+              borderColor: grey.main,
+              textTransform: "capitalize",
+              "&:hover": {
+                borderColor: secondary.main,
+              },
+            }}
+            onClick={handleClose}
+          >
+            Cancel
+          </Button>
+          <Button
+            className="font-semibold italic"
+            variant="contained"
+            sx={{
+              backgroundColor: primary[900],
+              "&:hover": {
+                bgcolor: primary.main,
+              },
+              textTransform: "capitalize",
+            }}
+            onClick={handleClickSnackbar({
+              vertical: "top",
+              horizontal: "center",
+            })}
+            disabled={offer === "" || discount === ""}
+          >
+            Offer Opportunity
+          </Button>
+        </Stack>
+      </Stack>
     </div>
   );
 };
