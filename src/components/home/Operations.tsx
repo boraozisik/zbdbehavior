@@ -22,6 +22,10 @@ const Operations = (props: Props) => {
   const handleClickLoyaltyMeter = () => {
     navigate("/loyaltymeter");
   };
+
+  const handleClickRewardLoyals = () => {
+    navigate("/rewardloyals");
+  };
   return (
     <div className="bg-gray-800">
       <section>
@@ -145,7 +149,7 @@ const Operations = (props: Props) => {
                 Define Campaign
               </h1>
 
-              <p className="text-gray-400 italic">
+              <p className="text-gray-400 italic text-justify">
                 This feature allows you to easily define a campaign for users
                 who have added at least one of your products to their cart in
                 case others of your products are also purchased. This feature
@@ -185,7 +189,7 @@ const Operations = (props: Props) => {
                 Loyalty Meter
               </h1>
 
-              <p className="text-gray-400 italic">
+              <p className="text-gray-400 italic text-justify">
                 This operation helps you identify disloyal users in their
                 purchases and define additional opportunities for them. With
                 this operation, it can be much easier for you to win back your
@@ -214,20 +218,28 @@ const Operations = (props: Props) => {
             </div>
             <div className="space-y-3">
               <span className="inline-block p-3  bg-gray-200 rounded-full">
-                <AcUnitIcon sx={{ color: primary.main }} />
+                <img
+                  src="/static/icons/star-icon.svg"
+                  alt=""
+                  style={{ width: "28px", height: "28px" }}
+                />
               </span>
 
               <h1 className="text-xl font-semibold capitalize text-gray-200 italic">
-                Copy & paste components
+                Reward Loyal Ones
               </h1>
 
-              <p className="text-gray-400 italic">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Provident ab nulla quod dignissimos vel non corrupti doloribus
-                voluptatum eveniet
+              <p className="text-gray-400 italic text-justify">
+                This operation allows you to find and reward your loyal users.
+                You can create special discount coupons for customers who shop
+                on your site more than once. In addition to discount coupons,
+                offering more personalized offers and deals based on their
+                previous purchases will increase the likelihood of repeat
+                purchases.
               </p>
 
               <button
+                onClick={handleClickRewardLoyals}
                 className="inline-flex items-center -mx-1 text-sm capitalize transition-colors duration-300 transform  hover:underline"
                 style={{ color: primary.main }}
               >
@@ -255,7 +267,7 @@ const Operations = (props: Props) => {
                 Copy & paste components
               </h1>
 
-              <p className="text-gray-400 italic">
+              <p className="text-gray-400 italic text-justify">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Provident ab nulla quod dignissimos vel non corrupti doloribus
                 voluptatum eveniet

@@ -6,6 +6,7 @@ import CampaignOutlinedIcon from "@mui/icons-material/CampaignOutlined";
 import ConnectWithoutContactOutlinedIcon from "@mui/icons-material/ConnectWithoutContactOutlined";
 import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
 import LoyaltyOutlinedIcon from "@mui/icons-material/LoyaltyOutlined";
+import MilitaryTechOutlinedIcon from "@mui/icons-material/MilitaryTechOutlined";
 import { ClickAwayListener } from "@mui/material";
 import { Fragment, useEffect, useState } from "react";
 import { primary } from "../../theme/themeColors";
@@ -40,6 +41,10 @@ const AppNavbar = (props: Props) => {
     navigate("/loyaltymeter");
   };
 
+  const handleClickRewardLoyals = () => {
+    navigate("/rewardloyals");
+  };
+
   const about = [
     {
       name: "Potential Sales Excel",
@@ -68,10 +73,10 @@ const AppNavbar = (props: Props) => {
       icon: LoyaltyOutlinedIcon,
     },
     {
-      name: "Operation4",
-      description: "ZbdBehavior",
-      // onClick: () => router.push("/ZbdBehavior"),
-      icon: ConnectWithoutContactOutlinedIcon,
+      name: "Reward Loyal Ones",
+      description: "Find loyal users, reward them, gain continuity.",
+      onClick: handleClickRewardLoyals,
+      icon: MilitaryTechOutlinedIcon,
     },
     {
       name: "Operation5",

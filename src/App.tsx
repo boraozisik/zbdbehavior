@@ -7,6 +7,7 @@ import PredictionExcel from "./views/predictionexcel/PredictionExcel";
 import Charts from "./views/charts/Charts";
 import DefineCampaign from "./views/defineCampaign/DefineCampaign";
 import LoyaltyMeter from "./views/loyaltymeter/LoyaltyMeter";
+import RewardLoyalOnes from "./views/rewardloyalones/RewardLoyalOnes";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/charts" index element={<Charts />} />
           <Route path="/campaign" index element={<DefineCampaign />} />
           <Route path="/loyaltymeter" index element={<LoyaltyMeter />} />
+          <Route path="/rewardloyals" index element={<RewardLoyalOnes />} />
         </Routes>
       </BrowserRouter>
     </div>
