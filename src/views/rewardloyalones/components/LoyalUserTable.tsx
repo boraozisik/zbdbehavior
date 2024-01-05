@@ -1,4 +1,4 @@
-import EditNoteIcon from "@mui/icons-material/EditNote";
+import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import {
   Alert,
   Box,
@@ -6,7 +6,6 @@ import {
   Grid,
   IconButton,
   Modal,
-  Popover,
   Snackbar,
   SnackbarOrigin,
   Stack,
@@ -27,13 +26,8 @@ import { primary, secondary } from "../../../theme/themeColors";
 import { ModalStyled } from "../../StyledComponents/ModalStyled";
 import UsersData from "../../users.json";
 import OfferOpportunityModal from "./OfferOpportunityModal";
-import ShortcutIcon from "@mui/icons-material/Shortcut";
 
 type Props = {};
-
-interface Feedback {
-  [product: string]: string;
-}
 
 interface MonthlySpend {
   [key: string]: {
@@ -84,7 +78,7 @@ const findDisloyalUsers = (usersData: User[]) => {
         ? totalPurchaces / monthsWithPurchaces.length
         : 0;
 
-    if (averageSpend < 300 || averagePurchaces < 1.5) {
+    if (averageSpend > 700 && averagePurchaces > 2) {
       disloyalUsers.push(user);
     }
   });
@@ -92,7 +86,7 @@ const findDisloyalUsers = (usersData: User[]) => {
   return disloyalUsers;
 };
 
-const DisloyalUserTable = (props: Props) => {
+const LoyalUserTable = (props: Props) => {
   const [open, setOpen] = useState(false);
   const [openForAll, setOpenForAll] = useState(false);
   const [averages, setAverages] = useState<number[]>([]);
@@ -167,7 +161,6 @@ const DisloyalUserTable = (props: Props) => {
   };
 
   const handleOfferOppClick = (row: any) => {
-    console.log("roww", row);
     const averagesData: number[] = [];
     averagesData.push(row.monthlySpend);
     averagesData.push(row.monthlyPurchaces);
@@ -198,45 +191,11 @@ const DisloyalUserTable = (props: Props) => {
       flex: 1,
     },
     {
-      field: "feedbacks",
-      headerName: "Feedbacks",
-      flex: 1,
-      renderCell: (params) => (
-        // <Stack>
-        //   {params.row.feedbacks.map((feedback: Feedback, index: any) => (
-        //     <div key={index}>
-        //       {Object.entries(feedback).map(([product, description]) => (
-        //         <div key={product}>
-        //           <Typography variant="body1" className="underline">
-        //             {product}:
-        //           </Typography>{" "}
-        //           {description}
-        //         </div>
-        //       ))}
-        //     </div>
-        //   ))}
-        // </Stack>
-
-        <Stack
-          direction={"row"}
-          gap={0.2}
-          alignItems={"center"}
-          justifyContent={"center"}
-        >
-          <ShortcutIcon
-            sx={{ color: primary.main, height: "18px", width: "18px" }}
-          />
-          <Typography variant="body2">{`${params.row.feedbacks.length} feedback, go actions to see.`}</Typography>
-        </Stack>
-      ),
-    },
-
-    {
       field: "id",
       headerName: "Actions",
       width: 100,
       renderCell: (params) => (
-        <Tooltip title="Take actions to win back" placement="top">
+        <Tooltip title="Offer a special opportunity" placement="top">
           <IconButton
             aria-label="offer-opp"
             onClick={() => {
@@ -245,7 +204,7 @@ const DisloyalUserTable = (props: Props) => {
               handleOpen();
             }}
           >
-            <EditNoteIcon sx={{ color: primary.main }} />
+            <LocalOfferIcon sx={{ color: primary.main }} />
           </IconButton>
         </Tooltip>
       ),
@@ -258,7 +217,6 @@ const DisloyalUserTable = (props: Props) => {
     lastName: data.last_name,
     monthlySpend: "$ " + findAverageSpendForUser(data),
     monthlyPurchaces: findAveragePurchacesForUser(data),
-    feedbacks: data.feedbacks,
   }));
 
   function CustomToolbar() {
@@ -288,7 +246,7 @@ const DisloyalUserTable = (props: Props) => {
               handleOpenForAll();
             }}
           >
-            Offer Opportunity to All
+            Reward All Loyal Users
           </Button>
         </Stack>
       </GridToolbarContainer>
@@ -380,4 +338,4 @@ const DisloyalUserTable = (props: Props) => {
   );
 };
 
-export default DisloyalUserTable;
+export default LoyalUserTable;

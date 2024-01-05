@@ -39,6 +39,11 @@
           "Dec": 1
         }
       }
+    ],
+    "feedbacks": [
+      {
+        "jblClip4": "The speaker does not sound as I expected and there is a problem with the product tape."
+      }
     ]
   },
   {
@@ -123,6 +128,11 @@
           "Dec": 2
         }
       }
+    ],
+    "feedbacks": [
+      {
+        "macbookPro14": "The box of the device arrived damaged and this reduces my trust."
+      }
     ]
   },
   {
@@ -165,6 +175,11 @@
           "Dec": 0
         }
       }
+    ],
+    "feedbacks": [
+      {
+        "jblClip4": "There was neither a Type C cable nor a Warranty Certificate... This is the contents of the box, if I knew it would be like this, I would have bought it elsewhere!"
+      }
     ]
   },
   {
@@ -206,6 +221,14 @@
           "Nov": 1,
           "Dec": 0
         }
+      }
+    ],
+    "feedbacks": [
+      {
+        "samsungGalaxyWatch": "Doesn't even last 4 hours"
+      },
+      {
+        "macbookPro14": "I bought the product on 27.12.2023, the warranty expiration date shows that it will end on 07.07.2025. Are you selling a used device?"
       }
     ]
   },
@@ -291,6 +314,11 @@
           "Dec": 0
         }
       }
+    ],
+    "feedbacks": [
+      {
+        "samsungGalaxyWatch": "The battery drains very quickly. You need to charge it almost daily."
+      }
     ]
   },
   {
@@ -332,6 +360,11 @@
           "Nov": 0,
           "Dec": 0
         }
+      }
+    ],
+    "feedbacks": [
+      {
+        "jblClip4": "Came in the wrong color, not what I expected"
       }
     ]
   },
@@ -375,6 +408,11 @@
           "Dec": 0
         }
       }
+    ],
+    "feedbacks": [
+      {
+        "macbookPro14": "The product invoice has not arrived, I cannot use it as an expense in any way, I have been trying for 3 days and I have not been returned yet."
+      }
     ]
   },
   {
@@ -416,6 +454,14 @@
           "Nov": 0,
           "Dec": 0
         }
+      }
+    ],
+    "feedbacks": [
+      {
+        "samsungGalaxyWatch": "It is not compatible with iPhone, friends who will buy it should pay attention! I was not given such information."
+      },
+      {
+        "macbookPro14": "While unboxing and setting up, I saw a sharp scratch on the left side of the laptop."
       }
     ]
   },
@@ -459,6 +505,11 @@
           "Dec": 0
         }
       }
+    ],
+    "feedbacks": [
+      {
+        "jblClip4": "The product has a pressing problem on the on-off button"
+      }
     ]
   },
   {
@@ -500,6 +551,11 @@
           "Nov": 0,
           "Dec": 0
         }
+      }
+    ],
+    "feedbacks": [
+      {
+        "jblClip4": "My phone does not see the product via Bluetooth in any way"
       }
     ]
   },
@@ -543,6 +599,11 @@
           "Dec": 0
         }
       }
+    ],
+    "feedbacks": [
+      {
+        "samsungGalaxyWatch": "The battery life doesn't even last 4 hours!!!"
+      }
     ]
   },
   {
@@ -585,6 +646,14 @@
           "Dec": 0
         }
       }
+    ],
+    "feedbacks": [
+      {
+        "samsungGalaxyWatch": "Whats app won't install on watch"
+      },
+      {
+        "macbookPro14": "After 1 month, touch ID broke"
+      }
     ]
   },
   {
@@ -626,6 +695,11 @@
           "Nov": 0,
           "Dec": 0
         }
+      }
+    ],
+    "feedbacks": [
+      {
+        "jblClip4": "I started experiencing disconnections and static."
       }
     ]
   },
@@ -794,6 +868,11 @@
           "Nov": 0,
           "Dec": 0
         }
+      }
+    ],
+    "feedbacks": [
+      {
+        "jblClip4": "The sound is much lower than I expected"
       }
     ]
   },
