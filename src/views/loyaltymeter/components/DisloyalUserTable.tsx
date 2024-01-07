@@ -1,4 +1,5 @@
 import EditNoteIcon from "@mui/icons-material/EditNote";
+import FeedbackIcon from "@mui/icons-material/Feedback";
 import {
   Alert,
   Box,
@@ -31,7 +32,7 @@ import ShortcutIcon from "@mui/icons-material/Shortcut";
 
 type Props = {};
 
-interface Feedback {
+export interface Feedback {
   [product: string]: string;
 }
 
@@ -98,6 +99,7 @@ const DisloyalUserTable = (props: Props) => {
   const [averages, setAverages] = useState<number[]>([]);
   const [name, setName] = useState<string>("");
   const [surname, setSurname] = useState<string>("");
+  const [feedbacks, setFeedbacks] = useState<Feedback[]>([]);
   const [state, setState] = useState<State>({
     openBar: false,
     vertical: "top",
@@ -174,6 +176,7 @@ const DisloyalUserTable = (props: Props) => {
     setName(row?.firstName);
     setSurname(row?.lastName);
     setAverages(averagesData);
+    setFeedbacks(row.feedbacks);
   };
 
   const columns: GridColDef[] = [
@@ -202,24 +205,9 @@ const DisloyalUserTable = (props: Props) => {
       headerName: "Feedbacks",
       flex: 1,
       renderCell: (params) => (
-        // <Stack>
-        //   {params.row.feedbacks.map((feedback: Feedback, index: any) => (
-        //     <div key={index}>
-        //       {Object.entries(feedback).map(([product, description]) => (
-        //         <div key={product}>
-        //           <Typography variant="body1" className="underline">
-        //             {product}:
-        //           </Typography>{" "}
-        //           {description}
-        //         </div>
-        //       ))}
-        //     </div>
-        //   ))}
-        // </Stack>
-
         <Stack
           direction={"row"}
-          gap={0.2}
+          gap={1}
           alignItems={"center"}
           justifyContent={"center"}
         >
@@ -236,7 +224,7 @@ const DisloyalUserTable = (props: Props) => {
       headerName: "Actions",
       width: 100,
       renderCell: (params) => (
-        <Tooltip title="Take actions to win back" placement="top">
+        <Tooltip title="See Feedbacks" placement="top">
           <IconButton
             aria-label="offer-opp"
             onClick={() => {
@@ -245,7 +233,9 @@ const DisloyalUserTable = (props: Props) => {
               handleOpen();
             }}
           >
-            <EditNoteIcon sx={{ color: primary.main }} />
+            <FeedbackIcon
+              sx={{ color: primary.main, height: "20px", width: "20px" }}
+            />
           </IconButton>
         </Tooltip>
       ),
@@ -270,26 +260,8 @@ const DisloyalUserTable = (props: Props) => {
         <GridToolbarFilterButton sx={{ color: primary.main }} />
         <GridToolbarDensitySelector sx={{ color: primary.main }} />
 
-        <Stack direction={"row"} ml={"auto"} width={"25%"} gap={2}>
+        <Stack direction={"row"} ml={"auto"} width={"15%"}>
           <GridToolbarQuickFilter />
-          <Button
-            className="font-semibold italic"
-            variant="contained"
-            sx={{
-              backgroundColor: primary[900],
-              "&:hover": {
-                bgcolor: primary.main,
-              },
-              textTransform: "capitalize",
-              height: 30,
-              width: 300,
-            }}
-            onClick={() => {
-              handleOpenForAll();
-            }}
-          >
-            Offer Opportunity to All
-          </Button>
         </Stack>
       </GridToolbarContainer>
     );
@@ -346,23 +318,11 @@ const DisloyalUserTable = (props: Props) => {
             userSurname={surname}
             averages={averages}
             handleClose={handleClose}
-            handleClickSnackbar={handleClickSnackbar}
+            feedbacks={feedbacks}
           />
         </ModalStyled>
       </Modal>
-      <Modal
-        open={openForAll}
-        onClose={handleCloseForAll}
-        aria-labelledby="modal-offer"
-        aria-describedby="modal-offer"
-      >
-        <ModalStyled>
-          <OfferOpportunityModal
-            handleClose={handleCloseForAll}
-            handleClickSnackbar={handleClickSnackbar}
-          />
-        </ModalStyled>
-      </Modal>
+
       <Box sx={{ width: 500 }}>
         <Snackbar
           anchorOrigin={{ vertical, horizontal }}

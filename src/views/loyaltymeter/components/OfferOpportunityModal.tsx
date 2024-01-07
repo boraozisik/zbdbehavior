@@ -17,13 +17,15 @@ import React from "react";
 import { companyProducts, specialOffers } from "../../../constants/constants";
 import { TextFieldStyled } from "../../StyledComponents/TextFieldStyled";
 import { grey, primary, secondary } from "../../../theme/themeColors";
+import { Feedback } from "./DisloyalUserTable";
+import FeedbackIcon from "@mui/icons-material/Feedback";
 
 type Props = {
-  username?: string;
-  userSurname?: string;
-  averages?: number[];
+  username: string;
+  userSurname: string;
+  averages: number[];
   handleClose: () => void;
-  handleClickSnackbar: (newState: SnackbarOrigin) => () => void;
+  feedbacks: Feedback[];
 };
 
 const ITEM_HEIGHT = 48;
@@ -39,10 +41,10 @@ const MenuProps = {
 
 const OfferOpportunityModal = ({
   averages,
-  handleClickSnackbar,
   handleClose,
   userSurname,
   username,
+  feedbacks,
 }: Props) => {
   const [offer, setOffer] = React.useState("");
   const [discount, setDiscount] = React.useState("");
@@ -64,149 +66,77 @@ const OfferOpportunityModal = ({
   };
 
   return (
-    <div>
-      {averages && userSurname && userSurname ? (
-        <Stack direction={"column"} gap={1}>
-          <Stack
-            direction={"row"}
-            gap={1}
-            alignItems={"center"}
-            justifyContent={"center"}
-          >
-            <Typography variant="body1">
-              {`${username} ${userSurname}'s Average Spend:`}
-            </Typography>
-
-            <Typography variant="caption" sx={{ mt: 0.5 }}>
-              {averages[0]}
-            </Typography>
-          </Stack>
-          <Stack
-            direction={"row"}
-            gap={1}
-            alignItems={"center"}
-            justifyContent={"center"}
-          >
-            <Typography variant="body1">
-              {`${username} ${userSurname}'s Average Purchaces:`}
-            </Typography>
-
-            <Typography variant="caption" sx={{ mt: 0.5 }}>
-              {averages[1]}
-            </Typography>
-          </Stack>
-          <Divider />
-        </Stack>
-      ) : (
-        <Stack direction={"column"} gap={1}>
-          <Typography variant="body1">
-            Offer Opportunity to All Disloyal Users
-          </Typography>
-          <Divider />
-        </Stack>
-      )}
-      <Stack
-        direction={"column"}
-        gap={2}
-        alignItems={"center"}
-        justifyContent={"center"}
-        mt={3}
-      >
-        <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Offer</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={offer}
-            label="Age"
-            onChange={handleChange}
-          >
-            {specialOffers.map((offer) => (
-              <MenuItem value={offer.id}>{offer.offer}</MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        {(offer === "3" || offer === "4") && (
-          <FormControl sx={{ width: "100%" }}>
-            <InputLabel id="multiple-checkbox-label">Product</InputLabel>
-            <Select
-              fullWidth
-              labelId="multiple-checkbox-label"
-              id="multiple-checkbox"
-              multiple
-              value={products}
-              onChange={handleChangeProducts}
-              input={<OutlinedInput label="Product" />}
-              renderValue={(selected) => selected.join(", ")}
-              MenuProps={MenuProps}
-            >
-              {companyProducts.map((product) => (
-                <MenuItem key={product} value={product}>
-                  <Checkbox checked={products.indexOf(product) > -1} />
-                  <ListItemText primary={product} />
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        )}
-        <TextFieldStyled
-          label={
-            offer === "1" || offer === "3"
-              ? "%?"
-              : offer === "2" || offer === "4"
-              ? "$?"
-              : "Offer Amount"
-          }
-          value={discount}
-          type="number"
-          InputProps={{ inputProps: { min: 0 } }}
-          onChange={handleDiscountChange}
-          fullWidth
-          disabled={offer === ""}
-        />
+    <Stack gap={3}>
+      <Stack direction={"column"} gap={1}>
         <Stack
           direction={"row"}
-          alignItems={"center"}
-          justifyContent={"flex-end"}
           gap={1}
+          alignItems={"flex-start"}
+          justifyContent={"flex-start"}
         >
-          <Button
-            variant="outlined"
-            component="label"
-            className="font-semibold italic"
-            sx={{
-              color: grey.textBlack,
-              borderColor: grey.main,
-              textTransform: "capitalize",
-              "&:hover": {
-                borderColor: secondary.main,
-              },
-            }}
-            onClick={handleClose}
-          >
-            Cancel
-          </Button>
-          <Button
-            className="font-semibold italic"
-            variant="contained"
-            sx={{
-              backgroundColor: primary[900],
-              "&:hover": {
-                bgcolor: primary.main,
-              },
-              textTransform: "capitalize",
-            }}
-            onClick={handleClickSnackbar({
-              vertical: "top",
-              horizontal: "center",
-            })}
-            disabled={offer === "" || discount === ""}
-          >
-            Offer Opportunity
-          </Button>
+          <Typography variant="body1" className="italic">
+            {`${username} ${userSurname}'s Average Spend:`}
+          </Typography>
+
+          <Typography variant="caption" sx={{ mt: 0.5 }}>
+            {averages[0]}
+          </Typography>
+        </Stack>
+        <Stack
+          direction={"row"}
+          gap={1}
+          alignItems={"flex-start"}
+          justifyContent={"flex-start"}
+        >
+          <Typography variant="body1" className="italic">
+            {`${username} ${userSurname}'s Average Purchaces:`}
+          </Typography>
+
+          <Typography variant="caption" sx={{ mt: 0.5 }}>
+            {averages[1]}
+          </Typography>
+        </Stack>
+        <Divider />
+      </Stack>
+
+      <Stack>
+        <Typography variant="h6" className="italic">
+          {`${username} ${userSurname}'s Feedbacks:`}
+        </Typography>
+        <Stack mt={1}>
+          {feedbacks.map((feedback: Feedback, index: any) => (
+            <div key={index}>
+              {Object.entries(feedback).map(([product, description]) => (
+                <div key={product}>
+                  <Typography variant="body1" className="underline italic">
+                    {product}:
+                  </Typography>
+                  <Stack
+                    direction={"row"}
+                    alignItems={"center"}
+                    gap={1}
+                    ml={4}
+                    mt={1}
+                    mb={1}
+                  >
+                    <FeedbackIcon
+                      sx={{
+                        color: primary.main,
+                        height: "18px",
+                        width: "18px",
+                      }}
+                    />
+                    <Typography variant="caption" className="italic">
+                      {description}
+                    </Typography>
+                  </Stack>
+                </div>
+              ))}
+            </div>
+          ))}
         </Stack>
       </Stack>
-    </div>
+    </Stack>
   );
 };
 

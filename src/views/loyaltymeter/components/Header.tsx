@@ -45,12 +45,12 @@ const Header = (props: Props) => {
               alt=""
               style={{ width: "50px", height: "50px" }}
             />
-            <p className="text-white font-semibold italic">Make an offer</p>
+            <p className="text-white font-semibold italic">Take an Action</p>
           </div>
 
           <div className="flex-1 bg-[#4169E1] rounded-lg flex flex-col items-center justify-center p-4 space-y-2 border border-gray-200 m-2  transition duration-300 hover:shadow-md">
             <img
-              src="/static/handdraws/love.svg"
+              src="/static/handdraws/heartFun.svg"
               alt=""
               style={{ width: "50px", height: "50px" }}
             />

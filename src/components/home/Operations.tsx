@@ -20,7 +20,7 @@ const Operations = (props: Props) => {
   };
 
   const handleClickLoyaltyMeter = () => {
-    navigate("/loyaltymeter");
+    navigate("/producesolution");
   };
 
   const handleClickRewardLoyals = () => {
@@ -221,21 +221,21 @@ const Operations = (props: Props) => {
             <div className="space-y-3">
               <span className="inline-block p-3  bg-gray-200 rounded-full">
                 <img
-                  src="/static/icons/loyalty-icon.svg"
+                  src="/static/icons/person-icon.svg"
                   alt=""
                   style={{ width: "28px", height: "28px" }}
                 />
               </span>
 
               <h1 className="text-xl font-semibold capitalize text-gray-200 italic">
-                Loyalty Meter
+                Produce a Solution
               </h1>
 
               <p className="text-gray-400 italic text-justify">
-                This operation helps you identify disloyal users in their
-                purchases and define additional opportunities for them. With
-                this operation, it can be much easier for you to win back your
-                disloyal users.
+                This operation lists users who are not loyal to you and looks at
+                their feedback and other actions to help you win them back.
+                Using this feature is a great way to take back users who are
+                about to give up on you.
               </p>
 
               <button

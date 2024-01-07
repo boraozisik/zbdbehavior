@@ -5,7 +5,7 @@ import UploadFileOutlinedIcon from "@mui/icons-material/UploadFileOutlined";
 import CampaignOutlinedIcon from "@mui/icons-material/CampaignOutlined";
 import ConnectWithoutContactOutlinedIcon from "@mui/icons-material/ConnectWithoutContactOutlined";
 import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
-import LoyaltyOutlinedIcon from "@mui/icons-material/LoyaltyOutlined";
+import ThumbUpAltOutlinedIcon from "@mui/icons-material/ThumbUpAltOutlined";
 import MilitaryTechOutlinedIcon from "@mui/icons-material/MilitaryTechOutlined";
 import { ClickAwayListener } from "@mui/material";
 import { Fragment, useEffect, useState } from "react";
@@ -38,7 +38,7 @@ const AppNavbar = (props: Props) => {
   };
 
   const handleClickLoyaltyMeter = () => {
-    navigate("/loyaltymeter");
+    navigate("/producesolution");
   };
 
   const handleClickRewardLoyals = () => {
@@ -66,17 +66,17 @@ const AppNavbar = (props: Props) => {
       icon: CampaignOutlinedIcon,
     },
     {
-      name: "Loyalty Meter",
-      description:
-        "Find disloyal users, offer special opportunity, win them back.",
-      onClick: handleClickLoyaltyMeter,
-      icon: LoyaltyOutlinedIcon,
-    },
-    {
       name: "Reward Loyal Ones",
       description: "Find loyal users, reward them, gain continuity.",
       onClick: handleClickRewardLoyals,
       icon: MilitaryTechOutlinedIcon,
+    },
+    {
+      name: "Produce a Solution",
+      description:
+        "Find disloyal users, offer special opportunity, win them back.",
+      onClick: handleClickLoyaltyMeter,
+      icon: ThumbUpAltOutlinedIcon,
     },
     {
       name: "Operation5",

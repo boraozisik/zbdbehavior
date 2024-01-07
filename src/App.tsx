@@ -21,7 +21,7 @@ function App() {
           <Route path="/predictionexcel" index element={<PredictionExcel />} />
           <Route path="/charts" index element={<Charts />} />
           <Route path="/campaign" index element={<DefineCampaign />} />
-          <Route path="/loyaltymeter" index element={<LoyaltyMeter />} />
+          <Route path="/producesolution" index element={<LoyaltyMeter />} />
           <Route path="/rewardloyals" index element={<RewardLoyalOnes />} />
         </Routes>
       </BrowserRouter>
