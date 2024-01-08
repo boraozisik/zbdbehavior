@@ -1,13 +1,12 @@
-import EditNoteIcon from "@mui/icons-material/EditNote";
+import EmailIcon from "@mui/icons-material/Email";
 import FeedbackIcon from "@mui/icons-material/Feedback";
+import ShortcutIcon from "@mui/icons-material/Shortcut";
 import {
   Alert,
   Box,
-  Button,
   Grid,
   IconButton,
   Modal,
-  Popover,
   Snackbar,
   SnackbarOrigin,
   Stack,
@@ -27,8 +26,8 @@ import { useState } from "react";
 import { primary, secondary } from "../../../theme/themeColors";
 import { ModalStyled } from "../../StyledComponents/ModalStyled";
 import UsersData from "../../users.json";
-import OfferOpportunityModal from "./OfferOpportunityModal";
-import ShortcutIcon from "@mui/icons-material/Shortcut";
+import ViewFeedbacksModal from "./ViewFeedbacksModal";
+import SendMailModal from "./SendMailModal";
 
 type Props = {};
 
@@ -95,10 +94,12 @@ const findDisloyalUsers = (usersData: User[]) => {
 
 const DisloyalUserTable = (props: Props) => {
   const [open, setOpen] = useState(false);
+  const [openMail, setOpenMail] = useState(false);
   const [openForAll, setOpenForAll] = useState(false);
   const [averages, setAverages] = useState<number[]>([]);
   const [name, setName] = useState<string>("");
   const [surname, setSurname] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
   const [feedbacks, setFeedbacks] = useState<Feedback[]>([]);
   const [state, setState] = useState<State>({
     openBar: false,
@@ -122,6 +123,12 @@ const DisloyalUserTable = (props: Props) => {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleOpenMail = () => setOpenMail(true);
+
+  const handleCloseMail = () => {
+    setOpenMail(false);
   };
 
   const handleOpenForAll = () => setOpenForAll(true);
@@ -179,6 +186,14 @@ const DisloyalUserTable = (props: Props) => {
     setFeedbacks(row.feedbacks);
   };
 
+  const handleMailOppClick = (row: any) => {
+    console.log("row", row);
+    setName(row?.firstName);
+    setSurname(row?.lastName);
+    console.log("emaill", row?.email);
+    setEmail(row?.email);
+  };
+
   const columns: GridColDef[] = [
     {
       field: "firstName",
@@ -190,6 +205,11 @@ const DisloyalUserTable = (props: Props) => {
       headerName: "Last Name",
       flex: 1,
     },
+    // {
+    //   field: "email",
+    //   headerName: "E-Mail",
+    //   flex: 1,
+    // },
     {
       field: "monthlySpend",
       headerName: "Avg Monthly Spend",
@@ -224,28 +244,56 @@ const DisloyalUserTable = (props: Props) => {
       headerName: "Actions",
       width: 100,
       renderCell: (params) => (
-        <Tooltip title="See Feedbacks" placement="top">
-          <IconButton
-            aria-label="offer-opp"
-            onClick={() => {
-              handleOfferOppClick(params.row);
+        <Stack
+          direction={"row"}
+          alignItems={"center"}
+          justifyContent={"center"}
+        >
+          <Tooltip title="See Feedbacks" placement="top">
+            <IconButton
+              aria-label="offer-opp"
+              onClick={() => {
+                handleOfferOppClick(params.row);
 
-              handleOpen();
-            }}
-          >
-            <FeedbackIcon
-              sx={{ color: primary.main, height: "20px", width: "20px" }}
-            />
-          </IconButton>
-        </Tooltip>
+                handleOpen();
+              }}
+            >
+              <FeedbackIcon
+                sx={{ color: primary.main, height: "20px", width: "20px" }}
+              />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="Send E-mail" placement="top">
+            <IconButton
+              aria-label="mail-opp"
+              onClick={() => {
+                handleMailOppClick(params.row);
+
+                handleOpenMail();
+              }}
+            >
+              <EmailIcon
+                sx={{
+                  color: primary.main,
+                  height: "20px",
+                  width: "20px",
+                  mb: "2px",
+                }}
+              />
+            </IconButton>
+          </Tooltip>
+        </Stack>
       ),
     },
   ];
+
+  console.log("disloyalUsers", disloyalUsers);
 
   const rows = disloyalUsers.map((data: any, index: number) => ({
     id: index + 1,
     firstName: data.first_name,
     lastName: data.last_name,
+    email: data.email,
     monthlySpend: "$ " + findAverageSpendForUser(data),
     monthlyPurchaces: findAveragePurchacesForUser(data),
     feedbacks: data.feedbacks,
@@ -313,13 +361,31 @@ const DisloyalUserTable = (props: Props) => {
         aria-describedby="modal-location-report"
       >
         <ModalStyled>
-          <OfferOpportunityModal
+          <ViewFeedbacksModal
             username={name}
             userSurname={surname}
             averages={averages}
             handleClose={handleClose}
             feedbacks={feedbacks}
           />
+        </ModalStyled>
+      </Modal>
+      <Modal
+        open={openMail}
+        onClose={handleCloseMail}
+        aria-labelledby="modal-mail-report"
+        aria-describedby="modal-mail-report"
+      >
+        <ModalStyled>
+          {
+            <SendMailModal
+              email={email}
+              username={name}
+              userSurname={surname}
+              handleClose={handleCloseMail}
+              handleClickSnackbar={handleClickSnackbar}
+            />
+          }
         </ModalStyled>
       </Modal>
 
@@ -332,7 +398,7 @@ const DisloyalUserTable = (props: Props) => {
           key={vertical + horizontal}
         >
           <Alert severity="success" sx={{ width: "100%" }}>
-            Successfully offered a special opportunity !
+            Mail Sent Successfully !
           </Alert>
         </Snackbar>
       </Box>

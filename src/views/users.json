@@ -3,6 +3,7 @@
     "id": 1,
     "first_name": "Ferrel",
     "last_name": "Peter",
+    "email": "ferrelpeter@mail.com",
     "cart": ["Macbook Pro 14"],
     "monthly_spend": [
       {
@@ -50,6 +51,7 @@
     "id": 2,
     "first_name": "Shea",
     "last_name": "Chase",
+    "email": "sheachase@mail.com",
     "cart": ["Samsung Galaxy Watch", "JBL Clip 4"],
     "monthly_spend": [
       {
@@ -92,6 +94,7 @@
     "id": 3,
     "first_name": "Tansy",
     "last_name": "Cluney",
+    "email": "tanscluney@mail.com",
     "cart": ["JBL Clip 4"],
     "monthly_spend": [
       {
@@ -139,6 +142,7 @@
     "id": 4,
     "first_name": "Riane",
     "last_name": "Sangster",
+    "email": "rianesangster@mail.com",
     "cart": ["Samsung Galaxy Watch"],
     "monthly_spend": [
       {
@@ -186,6 +190,7 @@
     "id": 5,
     "first_name": "Kiel",
     "last_name": "Mitkcov",
+    "email": "kielmitkcov@mail.com",
     "cart": ["Macbook Pro 14", "Samsung Galaxy Watch"],
     "monthly_spend": [
       {
@@ -236,6 +241,7 @@
     "id": 6,
     "first_name": "Abbie",
     "last_name": "Van der Kruis",
+    "email": "abbievdk@mail.com",
     "cart": ["Macbook Pro 14", "JBL Clip 4"],
     "monthly_spend": [
       {
@@ -278,6 +284,7 @@
     "id": 7,
     "first_name": "Clarette",
     "last_name": "Burge",
+    "email": "claretteburge@mail.com",
     "cart": ["JBL Clip 4"],
     "monthly_spend": [
       {
@@ -325,6 +332,7 @@
     "id": 8,
     "first_name": "Lorine",
     "last_name": "Sworne",
+    "email": "lorinesworne@mail.com",
     "cart": ["Macbook Pro 14", "Samsung Galaxy Watch"],
     "monthly_spend": [
       {
@@ -372,6 +380,7 @@
     "id": 9,
     "first_name": "Tami",
     "last_name": "Burrill",
+    "email": "tamiburrill@mail.com",
     "cart": ["Macbook Pro 14", "JBL Clip 4"],
     "monthly_spend": [
       {
@@ -419,6 +428,7 @@
     "id": 10,
     "first_name": "Fred",
     "last_name": "Quantrill",
+    "email": "fredqql@mail.com",
     "cart": ["Macbook Pro 14", "JBL Clip 4"],
     "monthly_spend": [
       {
@@ -469,6 +479,7 @@
     "id": 11,
     "first_name": "Devon",
     "last_name": "Kinvan",
+    "email": "devonkinvan@mail.com",
     "cart": ["JBL Clip 4", "Samsung Galaxy Watch"],
     "monthly_spend": [
       {
@@ -516,6 +527,7 @@
     "id": 12,
     "first_name": "Ingrim",
     "last_name": "Chatfield",
+    "email": "chatingrim@mail.com",
     "cart": ["Macbook Pro 14"],
     "monthly_spend": [
       {
@@ -563,6 +575,7 @@
     "id": 13,
     "first_name": "Selig",
     "last_name": "Boother",
+    "email": "seligbroother@mail.com",
     "cart": ["Samsung Galaxy Watch"],
     "monthly_spend": [
       {
@@ -610,6 +623,7 @@
     "id": 14,
     "first_name": "Tomkin",
     "last_name": "Neame",
+    "email": "neametomkin@mail.com",
     "cart": ["JBL Clip 4"],
     "monthly_spend": [
       {
@@ -660,6 +674,7 @@
     "id": 15,
     "first_name": "Odette",
     "last_name": "Hathway",
+    "email": "hatodette@mail.com",
     "cart": ["JBL Clip 4"],
     "monthly_spend": [
       {
@@ -707,6 +722,7 @@
     "id": 16,
     "first_name": "Lenette",
     "last_name": "Halpeine",
+    "email": "halpeinelenette@mail.com",
     "cart": ["Samsung Galaxy Watch"],
     "monthly_spend": [
       {
@@ -749,6 +765,7 @@
     "id": 17,
     "first_name": "Connor",
     "last_name": "Kenion",
+    "email": "connorkenion@mail.com",
     "cart": ["Macbook Pro 14"],
     "monthly_spend": [
       {
@@ -791,6 +808,7 @@
     "id": 18,
     "first_name": "Onofredo",
     "last_name": "Perello",
+    "email": "onofredoperello@mail.com",
     "cart": ["Samsung Galaxy Watch"],
     "monthly_spend": [
       {
@@ -833,6 +851,7 @@
     "id": 19,
     "first_name": "Reginauld",
     "last_name": "Cosstick",
+    "email": "cosstickreginauld@mail.com",
     "cart": ["Macbook Pro 14", "JBL Clip 4"],
     "monthly_spend": [
       {
@@ -880,6 +899,7 @@
     "id": 20,
     "first_name": "Lawry",
     "last_name": "McDuffie",
+    "email": "mclawryduff@mail.com",
     "cart": ["Macbook Pro 14", "Samsung Galaxy Watch"],
     "monthly_spend": [
       {

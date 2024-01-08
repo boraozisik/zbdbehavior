@@ -1,24 +1,7 @@
-import {
-  Button,
-  Checkbox,
-  Divider,
-  FormControl,
-  InputLabel,
-  ListItemText,
-  MenuItem,
-  OutlinedInput,
-  Select,
-  SelectChangeEvent,
-  SnackbarOrigin,
-  Stack,
-  Typography,
-} from "@mui/material";
-import React from "react";
-import { companyProducts, specialOffers } from "../../../constants/constants";
-import { TextFieldStyled } from "../../StyledComponents/TextFieldStyled";
-import { grey, primary, secondary } from "../../../theme/themeColors";
-import { Feedback } from "./DisloyalUserTable";
 import FeedbackIcon from "@mui/icons-material/Feedback";
+import { Divider, Stack, Typography } from "@mui/material";
+import { primary } from "../../../theme/themeColors";
+import { Feedback } from "./DisloyalUserTable";
 
 type Props = {
   username: string;
@@ -28,43 +11,13 @@ type Props = {
   feedbacks: Feedback[];
 };
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
-};
-
-const OfferOpportunityModal = ({
+const ViewFeedbacksModal = ({
   averages,
   handleClose,
   userSurname,
   username,
   feedbacks,
 }: Props) => {
-  const [offer, setOffer] = React.useState("");
-  const [discount, setDiscount] = React.useState("");
-  const [products, setProducts] = React.useState<string[]>([]);
-
-  const handleChange = (event: SelectChangeEvent) => {
-    setOffer(event.target.value as string);
-  };
-
-  const handleChangeProducts = (event: SelectChangeEvent<typeof products>) => {
-    const {
-      target: { value },
-    } = event;
-    setProducts(typeof value === "string" ? value.split(",") : value);
-  };
-
-  const handleDiscountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setDiscount(e.target.value as string);
-  };
-
   return (
     <Stack gap={3}>
       <Stack direction={"column"} gap={1}>
@@ -140,4 +93,4 @@ const OfferOpportunityModal = ({
   );
 };
 
-export default OfferOpportunityModal;
+export default ViewFeedbacksModal;
