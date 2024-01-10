@@ -123,12 +123,14 @@ const UsersTable = (props: Props) => {
     },
   ];
 
-  const rows = UsersData.map((data: any, index: number) => ({
-    id: index + 1,
-    firstName: data.first_name,
-    lastName: data.last_name,
-    cart: data.cart,
-  }));
+  const rows = UsersData.filter((data: any) => data.cart.length > 0).map(
+    (data: any, index: number) => ({
+      id: index + 1,
+      firstName: data.first_name,
+      lastName: data.last_name,
+      cart: data.cart,
+    })
+  );
 
   function CustomToolbar() {
     return (

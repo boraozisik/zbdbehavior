@@ -29,7 +29,9 @@ const SendMailModal = ({
   const [about, setAbout] = React.useState<string>(
     "Fixing Feedbacked Problems"
   );
-  const [message, setMessage] = React.useState<string>("");
+  const [message, setMessage] = React.useState<string>(
+    "We saw your feedback and..."
+  );
 
   const handleEmailChange = (event: any) => {
     setSendEmail(event.target.value as string);

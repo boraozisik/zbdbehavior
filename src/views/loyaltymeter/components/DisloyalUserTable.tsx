@@ -28,6 +28,8 @@ import { ModalStyled } from "../../StyledComponents/ModalStyled";
 import UsersData from "../../users.json";
 import ViewFeedbacksModal from "./ViewFeedbacksModal";
 import SendMailModal from "./SendMailModal";
+import ApplyDiscountModal from "./ApplyDiscountModal";
+import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 
 type Props = {};
 
@@ -53,10 +55,21 @@ interface State extends SnackbarOrigin {
   openBar: boolean;
 }
 
+interface StateDisc {
+  openBarDisc: boolean;
+  verticalDisc: "top" | "bottom";
+  horizontalDisc: "left" | "center" | "right";
+}
+
 const findDisloyalUsers = (usersData: User[]) => {
   const disloyalUsers: User[] = [];
 
-  usersData.map((user: User) => {
+  const filteredUsers = usersData.filter(
+    (data: User) =>
+      data.monthly_spend.length > 0 && data.purchasesPerMonth.length > 0
+  );
+
+  filteredUsers.map((user: User) => {
     let averageSpend = 0;
     let averagePurchaces = 0;
 
@@ -95,7 +108,7 @@ const findDisloyalUsers = (usersData: User[]) => {
 const DisloyalUserTable = (props: Props) => {
   const [open, setOpen] = useState(false);
   const [openMail, setOpenMail] = useState(false);
-  const [openForAll, setOpenForAll] = useState(false);
+  const [openDiscount, setOpenDiscount] = useState(false);
   const [averages, setAverages] = useState<number[]>([]);
   const [name, setName] = useState<string>("");
   const [surname, setSurname] = useState<string>("");
@@ -107,7 +120,14 @@ const DisloyalUserTable = (props: Props) => {
     horizontal: "center",
   });
 
+  const [stateDiscountSnack, setStateDiscountSnack] = useState<StateDisc>({
+    openBarDisc: false,
+    verticalDisc: "top",
+    horizontalDisc: "center",
+  });
+
   const { vertical, horizontal, openBar } = state;
+  const { verticalDisc, horizontalDisc, openBarDisc } = stateDiscountSnack;
 
   const disloyalUsers = findDisloyalUsers(UsersData);
 
@@ -117,6 +137,19 @@ const DisloyalUserTable = (props: Props) => {
 
   const handleCloseSnackbar = () => {
     setState({ ...state, openBar: false });
+  };
+
+  const handleClickDiscountSnackbar =
+    (newState: {
+      verticalDisc: "top" | "bottom";
+      horizontalDisc: "left" | "center" | "right";
+    }) =>
+    () => {
+      setStateDiscountSnack({ ...newState, openBarDisc: true });
+    };
+
+  const handleCloseDiscountSnackbar = () => {
+    setStateDiscountSnack({ ...stateDiscountSnack, openBarDisc: false });
   };
 
   const handleOpen = () => setOpen(true);
@@ -131,10 +164,10 @@ const DisloyalUserTable = (props: Props) => {
     setOpenMail(false);
   };
 
-  const handleOpenForAll = () => setOpenForAll(true);
+  const handleOpenDiscount = () => setOpenDiscount(true);
 
-  const handleCloseForAll = () => {
-    setOpenForAll(false);
+  const handleCloseDiscount = () => {
+    setOpenDiscount(false);
   };
 
   const findAverageSpendForUser = (user: User) => {
@@ -242,7 +275,7 @@ const DisloyalUserTable = (props: Props) => {
     {
       field: "id",
       headerName: "Actions",
-      width: 100,
+      width: 120,
       renderCell: (params) => (
         <Stack
           direction={"row"}
@@ -273,6 +306,25 @@ const DisloyalUserTable = (props: Props) => {
               }}
             >
               <EmailIcon
+                sx={{
+                  color: primary.main,
+                  height: "20px",
+                  width: "20px",
+                  mb: "2px",
+                }}
+              />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="Give a Gift" placement="top">
+            <IconButton
+              aria-label="disc-opp"
+              onClick={() => {
+                handleMailOppClick(params.row);
+
+                handleOpenDiscount();
+              }}
+            >
+              <CardGiftcardIcon
                 sx={{
                   color: primary.main,
                   height: "20px",
@@ -388,7 +440,21 @@ const DisloyalUserTable = (props: Props) => {
           }
         </ModalStyled>
       </Modal>
-
+      <Modal
+        open={openDiscount}
+        onClose={handleCloseDiscount}
+        aria-labelledby="modal-disc-report"
+        aria-describedby="modal-disc-report"
+      >
+        <ModalStyled>
+          <ApplyDiscountModal
+            username={name}
+            userSurname={surname}
+            handleClose={handleCloseDiscount}
+            handleClickSnackbar={handleClickDiscountSnackbar}
+          />
+        </ModalStyled>
+      </Modal>
       <Box sx={{ width: 500 }}>
         <Snackbar
           anchorOrigin={{ vertical, horizontal }}
@@ -399,6 +465,17 @@ const DisloyalUserTable = (props: Props) => {
         >
           <Alert severity="success" sx={{ width: "100%" }}>
             Mail Sent Successfully !
+          </Alert>
+        </Snackbar>
+        <Snackbar
+          anchorOrigin={{ vertical, horizontal }}
+          autoHideDuration={4000}
+          open={openBarDisc}
+          onClose={handleCloseDiscountSnackbar}
+          key={verticalDisc + horizontalDisc}
+        >
+          <Alert severity="success" sx={{ width: "100%" }}>
+            Gift Delivered Successfully !
           </Alert>
         </Snackbar>
       </Box>

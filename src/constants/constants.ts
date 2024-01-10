@@ -10,3 +10,8 @@ export const specialOffers = [
   { id: "3", offer: "%? discount for specific product" },
   { id: "4", offer: "$? discount for specific product" },
 ];
+
+export const specialGifts = [
+  { id: "1", offer: "%? discount Gift Coupon for next order" },
+  { id: "2", offer: "$? discount Gift Coupon for next order" },
+];

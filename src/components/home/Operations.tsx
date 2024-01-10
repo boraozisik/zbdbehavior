@@ -265,13 +265,13 @@ const Operations = (props: Props) => {
               </span>
 
               <h1 className="text-xl font-semibold capitalize text-gray-200 italic">
-                Copy & paste components
+                Special Offers for New Joiners
               </h1>
 
               <p className="text-gray-400 italic text-justify">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Provident ab nulla quod dignissimos vel non corrupti doloribus
-                voluptatum eveniet
+                This operation helps you make special offers for new users who
+                register on your site. In this way, you can attract new joiners
+                to buy your products and ensure continuity.
               </p>
 
               <button

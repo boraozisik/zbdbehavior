@@ -4,6 +4,7 @@
     "first_name": "Ferrel",
     "last_name": "Peter",
     "email": "ferrelpeter@mail.com",
+    "joinedAt": "15/12/2023",
     "cart": ["Macbook Pro 14"],
     "monthly_spend": [
       {
@@ -52,6 +53,7 @@
     "first_name": "Shea",
     "last_name": "Chase",
     "email": "sheachase@mail.com",
+    "joinedAt": "01/12/2023",
     "cart": ["Samsung Galaxy Watch", "JBL Clip 4"],
     "monthly_spend": [
       {
@@ -95,6 +97,7 @@
     "first_name": "Tansy",
     "last_name": "Cluney",
     "email": "tanscluney@mail.com",
+    "joinedAt": "12/10/2023",
     "cart": ["JBL Clip 4"],
     "monthly_spend": [
       {
@@ -143,6 +146,7 @@
     "first_name": "Riane",
     "last_name": "Sangster",
     "email": "rianesangster@mail.com",
+    "joinedAt": "23/09/2023",
     "cart": ["Samsung Galaxy Watch"],
     "monthly_spend": [
       {
@@ -191,6 +195,7 @@
     "first_name": "Kiel",
     "last_name": "Mitkcov",
     "email": "kielmitkcov@mail.com",
+    "joinedAt": "26/08/2023",
     "cart": ["Macbook Pro 14", "Samsung Galaxy Watch"],
     "monthly_spend": [
       {
@@ -242,6 +247,7 @@
     "first_name": "Abbie",
     "last_name": "Van der Kruis",
     "email": "abbievdk@mail.com",
+    "joinedAt": "27/12/2023",
     "cart": ["Macbook Pro 14", "JBL Clip 4"],
     "monthly_spend": [
       {
@@ -285,6 +291,7 @@
     "first_name": "Clarette",
     "last_name": "Burge",
     "email": "claretteburge@mail.com",
+    "joinedAt": "15/12/2023",
     "cart": ["JBL Clip 4"],
     "monthly_spend": [
       {
@@ -333,6 +340,7 @@
     "first_name": "Lorine",
     "last_name": "Sworne",
     "email": "lorinesworne@mail.com",
+    "joinedAt": "19/11/2023",
     "cart": ["Macbook Pro 14", "Samsung Galaxy Watch"],
     "monthly_spend": [
       {
@@ -381,6 +389,7 @@
     "first_name": "Tami",
     "last_name": "Burrill",
     "email": "tamiburrill@mail.com",
+    "joinedAt": "29/06/2023",
     "cart": ["Macbook Pro 14", "JBL Clip 4"],
     "monthly_spend": [
       {
@@ -429,6 +438,7 @@
     "first_name": "Fred",
     "last_name": "Quantrill",
     "email": "fredqql@mail.com",
+    "joinedAt": "15/10/2023",
     "cart": ["Macbook Pro 14", "JBL Clip 4"],
     "monthly_spend": [
       {
@@ -480,6 +490,7 @@
     "first_name": "Devon",
     "last_name": "Kinvan",
     "email": "devonkinvan@mail.com",
+    "joinedAt": "15/04/2023",
     "cart": ["JBL Clip 4", "Samsung Galaxy Watch"],
     "monthly_spend": [
       {
@@ -528,6 +539,7 @@
     "first_name": "Ingrim",
     "last_name": "Chatfield",
     "email": "chatingrim@mail.com",
+    "joinedAt": "25/07/2023",
     "cart": ["Macbook Pro 14"],
     "monthly_spend": [
       {
@@ -576,6 +588,7 @@
     "first_name": "Selig",
     "last_name": "Boother",
     "email": "seligbroother@mail.com",
+    "joinedAt": "15/12/2023",
     "cart": ["Samsung Galaxy Watch"],
     "monthly_spend": [
       {
@@ -624,6 +637,7 @@
     "first_name": "Tomkin",
     "last_name": "Neame",
     "email": "neametomkin@mail.com",
+    "joinedAt": "09/08/2023",
     "cart": ["JBL Clip 4"],
     "monthly_spend": [
       {
@@ -675,6 +689,7 @@
     "first_name": "Odette",
     "last_name": "Hathway",
     "email": "hatodette@mail.com",
+    "joinedAt": "31/01/2023",
     "cart": ["JBL Clip 4"],
     "monthly_spend": [
       {
@@ -723,6 +738,7 @@
     "first_name": "Lenette",
     "last_name": "Halpeine",
     "email": "halpeinelenette@mail.com",
+    "joinedAt": "14/12/2023",
     "cart": ["Samsung Galaxy Watch"],
     "monthly_spend": [
       {
@@ -767,6 +783,7 @@
     "last_name": "Kenion",
     "email": "connorkenion@mail.com",
     "cart": ["Macbook Pro 14"],
+    "joinedAt": "05/12/2023",
     "monthly_spend": [
       {
         "2023": {
@@ -809,6 +826,7 @@
     "first_name": "Onofredo",
     "last_name": "Perello",
     "email": "onofredoperello@mail.com",
+    "joinedAt": "25/12/2023",
     "cart": ["Samsung Galaxy Watch"],
     "monthly_spend": [
       {
@@ -852,6 +870,7 @@
     "first_name": "Reginauld",
     "last_name": "Cosstick",
     "email": "cosstickreginauld@mail.com",
+    "joinedAt": "13/10/2023",
     "cart": ["Macbook Pro 14", "JBL Clip 4"],
     "monthly_spend": [
       {
@@ -900,6 +919,7 @@
     "first_name": "Lawry",
     "last_name": "McDuffie",
     "email": "mclawryduff@mail.com",
+    "joinedAt": "11/11/2023",
     "cart": ["Macbook Pro 14", "Samsung Galaxy Watch"],
     "monthly_spend": [
       {
@@ -937,5 +957,15 @@
         }
       }
     ]
+  },
+  {
+    "id": 21,
+    "first_name": "Michael",
+    "last_name": "Hemfield",
+    "email": "hemmichael@mail.com",
+    "joinedAt": "06/01/2023",
+    "cart": [],
+    "monthly_spend": [],
+    "purchasesPerMonth": []
   }
 ]

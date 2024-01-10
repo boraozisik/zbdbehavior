@@ -50,7 +50,12 @@ interface State extends SnackbarOrigin {
 const findDisloyalUsers = (usersData: User[]) => {
   const disloyalUsers: User[] = [];
 
-  usersData.map((user: User) => {
+  const filteredUsers = usersData.filter(
+    (data: User) =>
+      data.monthly_spend.length > 0 && data.purchasesPerMonth.length > 0
+  );
+
+  filteredUsers.map((user: User) => {
     let averageSpend = 0;
     let averagePurchaces = 0;
 
