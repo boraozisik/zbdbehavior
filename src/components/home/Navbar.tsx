@@ -3,7 +3,6 @@ import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import UploadFileOutlinedIcon from "@mui/icons-material/UploadFileOutlined";
 import CampaignOutlinedIcon from "@mui/icons-material/CampaignOutlined";
-import ConnectWithoutContactOutlinedIcon from "@mui/icons-material/ConnectWithoutContactOutlined";
 import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
 import ThumbUpAltOutlinedIcon from "@mui/icons-material/ThumbUpAltOutlined";
 import MilitaryTechOutlinedIcon from "@mui/icons-material/MilitaryTechOutlined";
@@ -11,6 +10,7 @@ import { ClickAwayListener } from "@mui/material";
 import { Fragment, useEffect, useState } from "react";
 import { primary } from "../../theme/themeColors";
 import { useNavigate } from "react-router-dom";
+import FiberNewOutlinedIcon from "@mui/icons-material/FiberNewOutlined";
 
 type Props = {};
 
@@ -43,6 +43,10 @@ const AppNavbar = (props: Props) => {
 
   const handleClickRewardLoyals = () => {
     navigate("/rewardloyals");
+  };
+
+  const handleClickNewJoiners = () => {
+    navigate("/specialoffersfornewjoiners");
   };
 
   const about = [
@@ -79,10 +83,10 @@ const AppNavbar = (props: Props) => {
       icon: ThumbUpAltOutlinedIcon,
     },
     {
-      name: "Operation5",
-      description: "ZbdBehavior",
-      // onClick: () => router.push("/ZbdBehavior"),
-      icon: ConnectWithoutContactOutlinedIcon,
+      name: "Offers for NEWS",
+      description: "Make offers to newcomers, attract them.",
+      onClick: handleClickNewJoiners,
+      icon: FiberNewOutlinedIcon,
     },
   ];
 

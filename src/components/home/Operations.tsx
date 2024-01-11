@@ -26,6 +26,11 @@ const Operations = (props: Props) => {
   const handleClickRewardLoyals = () => {
     navigate("/rewardloyals");
   };
+
+  const handleClickNewJoiners = () => {
+    navigate("/specialoffersfornewjoiners");
+  };
+
   return (
     <div className="bg-gray-800">
       <section>
@@ -261,11 +266,15 @@ const Operations = (props: Props) => {
 
             <div className="space-y-3">
               <span className="inline-block p-3  bg-gray-200 rounded-full">
-                <AcUnitIcon sx={{ color: primary.main }} />
+                <img
+                  src="/static/icons/cupcake-icon.svg"
+                  alt=""
+                  style={{ width: "28px", height: "28px" }}
+                />
               </span>
 
               <h1 className="text-xl font-semibold capitalize text-gray-200 italic">
-                Special Offers for New Joiners
+                Special Offers for Newcomers
               </h1>
 
               <p className="text-gray-400 italic text-justify">
@@ -275,6 +284,7 @@ const Operations = (props: Props) => {
               </p>
 
               <button
+                onClick={handleClickNewJoiners}
                 className="inline-flex items-center -mx-1 text-sm capitalize transition-colors duration-300 transform  hover:underline"
                 style={{ color: primary.main }}
               >

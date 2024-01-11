@@ -4,7 +4,7 @@
     "first_name": "Ferrel",
     "last_name": "Peter",
     "email": "ferrelpeter@mail.com",
-    "joinedAt": "15/12/2023",
+    "joinedAt": "15/07/2023",
     "cart": ["Macbook Pro 14"],
     "monthly_spend": [
       {
@@ -53,7 +53,7 @@
     "first_name": "Shea",
     "last_name": "Chase",
     "email": "sheachase@mail.com",
-    "joinedAt": "01/12/2023",
+    "joinedAt": "01/11/2023",
     "cart": ["Samsung Galaxy Watch", "JBL Clip 4"],
     "monthly_spend": [
       {
@@ -247,7 +247,7 @@
     "first_name": "Abbie",
     "last_name": "Van der Kruis",
     "email": "abbievdk@mail.com",
-    "joinedAt": "27/12/2023",
+    "joinedAt": "27/11/2023",
     "cart": ["Macbook Pro 14", "JBL Clip 4"],
     "monthly_spend": [
       {
@@ -291,7 +291,7 @@
     "first_name": "Clarette",
     "last_name": "Burge",
     "email": "claretteburge@mail.com",
-    "joinedAt": "15/12/2023",
+    "joinedAt": "15/11/2023",
     "cart": ["JBL Clip 4"],
     "monthly_spend": [
       {
@@ -490,7 +490,7 @@
     "first_name": "Devon",
     "last_name": "Kinvan",
     "email": "devonkinvan@mail.com",
-    "joinedAt": "15/04/2023",
+    "joinedAt": "15/05/2023",
     "cart": ["JBL Clip 4", "Samsung Galaxy Watch"],
     "monthly_spend": [
       {
@@ -539,7 +539,7 @@
     "first_name": "Ingrim",
     "last_name": "Chatfield",
     "email": "chatingrim@mail.com",
-    "joinedAt": "25/07/2023",
+    "joinedAt": "25/09/2023",
     "cart": ["Macbook Pro 14"],
     "monthly_spend": [
       {
@@ -588,7 +588,7 @@
     "first_name": "Selig",
     "last_name": "Boother",
     "email": "seligbroother@mail.com",
-    "joinedAt": "15/12/2023",
+    "joinedAt": "15/09/2023",
     "cart": ["Samsung Galaxy Watch"],
     "monthly_spend": [
       {
@@ -637,7 +637,7 @@
     "first_name": "Tomkin",
     "last_name": "Neame",
     "email": "neametomkin@mail.com",
-    "joinedAt": "09/08/2023",
+    "joinedAt": "09/10/2023",
     "cart": ["JBL Clip 4"],
     "monthly_spend": [
       {
@@ -689,7 +689,7 @@
     "first_name": "Odette",
     "last_name": "Hathway",
     "email": "hatodette@mail.com",
-    "joinedAt": "31/01/2023",
+    "joinedAt": "31/05/2023",
     "cart": ["JBL Clip 4"],
     "monthly_spend": [
       {
@@ -738,7 +738,7 @@
     "first_name": "Lenette",
     "last_name": "Halpeine",
     "email": "halpeinelenette@mail.com",
-    "joinedAt": "14/12/2023",
+    "joinedAt": "14/07/2023",
     "cart": ["Samsung Galaxy Watch"],
     "monthly_spend": [
       {
@@ -783,7 +783,7 @@
     "last_name": "Kenion",
     "email": "connorkenion@mail.com",
     "cart": ["Macbook Pro 14"],
-    "joinedAt": "05/12/2023",
+    "joinedAt": "05/04/2023",
     "monthly_spend": [
       {
         "2023": {
@@ -826,7 +826,7 @@
     "first_name": "Onofredo",
     "last_name": "Perello",
     "email": "onofredoperello@mail.com",
-    "joinedAt": "25/12/2023",
+    "joinedAt": "25/07/2023",
     "cart": ["Samsung Galaxy Watch"],
     "monthly_spend": [
       {
@@ -963,7 +963,167 @@
     "first_name": "Michael",
     "last_name": "Hemfield",
     "email": "hemmichael@mail.com",
-    "joinedAt": "06/01/2023",
+    "joinedAt": "06/01/2024",
+    "cart": [],
+    "monthly_spend": [],
+    "purchasesPerMonth": []
+  },
+  {
+    "id": 22,
+    "first_name": "Vanessa",
+    "last_name": "Melby",
+    "email": "vmelby1@fema.gov",
+    "joinedAt": "06/01/2024",
+    "cart": [],
+    "monthly_spend": [],
+    "purchasesPerMonth": []
+  },
+  {
+    "id": 23,
+    "first_name": "Lynnette",
+    "last_name": "Blaskett",
+    "email": "lblaskett2@mapy.cz",
+    "joinedAt": "07/01/2024",
+    "cart": [],
+    "monthly_spend": [],
+    "purchasesPerMonth": []
+  },
+  {
+    "id": 24,
+    "first_name": "Shannan",
+    "last_name": "Ringham",
+    "email": "sringham3@ameblo.jp",
+    "joinedAt": "08/01/2024",
+    "cart": [],
+    "monthly_spend": [],
+    "purchasesPerMonth": []
+  },
+  {
+    "id": 25,
+    "first_name": "Starla",
+    "last_name": "Whitloe",
+    "email": "swhitloe4@google.it",
+    "joinedAt": "09/01/2024",
+    "cart": [],
+    "monthly_spend": [],
+    "purchasesPerMonth": []
+  },
+  {
+    "id": 26,
+    "first_name": "Idell",
+    "last_name": "Cromer",
+    "email": "icromer6@gmpg.org",
+    "joinedAt": "08/01/2024",
+    "cart": [],
+    "monthly_spend": [],
+    "purchasesPerMonth": []
+  },
+  {
+    "id": 27,
+    "first_name": "Durand",
+    "last_name": "Coutthart",
+    "email": "dcoutthart7@senate.gov",
+    "joinedAt": "09/01/2024",
+    "cart": [],
+    "monthly_spend": [],
+    "purchasesPerMonth": []
+  },
+  {
+    "id": 28,
+    "first_name": "Rowney",
+    "last_name": "Vidgeon",
+    "email": "rvidgeon8@psu.edu",
+    "joinedAt": "10/01/2024",
+    "cart": [],
+    "monthly_spend": [],
+    "purchasesPerMonth": []
+  },
+  {
+    "id": 29,
+    "first_name": "Malissa",
+    "last_name": "Heggs",
+    "email": "mheggs9@ameblo.jp",
+    "joinedAt": "10/01/2024",
+    "cart": [],
+    "monthly_spend": [],
+    "purchasesPerMonth": []
+  },
+  {
+    "id": 30,
+    "first_name": "Christi",
+    "last_name": "Silversmidt",
+    "email": "csilversmidta@hao123.com",
+    "joinedAt": "11/01/2024",
+    "cart": [],
+    "monthly_spend": [],
+    "purchasesPerMonth": []
+  },
+  {
+    "id": 31,
+    "first_name": "Lurlene",
+    "last_name": "Rossin",
+    "email": "lrossinc@delicious.com",
+    "joinedAt": "11/01/2024",
+    "cart": [],
+    "monthly_spend": [],
+    "purchasesPerMonth": []
+  },
+  {
+    "id": 32,
+    "first_name": "Judith",
+    "last_name": "Brandacci",
+    "email": "jbrandaccie@gravatar.com",
+    "joinedAt": "11/01/2024",
+    "cart": [],
+    "monthly_spend": [],
+    "purchasesPerMonth": []
+  },
+  {
+    "id": 33,
+    "first_name": "Salli",
+    "last_name": "Steven",
+    "email": "sstevenf@cnbc.com",
+    "joinedAt": "05/01/2024",
+    "cart": [],
+    "monthly_spend": [],
+    "purchasesPerMonth": []
+  },
+  {
+    "id": 34,
+    "first_name": "Leta",
+    "last_name": "Fortman",
+    "email": "lfortmani@google.cn",
+    "joinedAt": "04/01/2024",
+    "cart": [],
+    "monthly_spend": [],
+    "purchasesPerMonth": []
+  },
+  {
+    "id": 35,
+    "first_name": "Tedie",
+    "last_name": "McAree",
+    "email": "tmcareej@jigsy.com",
+    "joinedAt": "07/01/2024",
+    "cart": [],
+    "monthly_spend": [],
+    "purchasesPerMonth": []
+  },
+  {
+    "id": 36,
+    "first_name": "Maurice",
+    "last_name": "Slayton",
+    "email": "mslaytonk@stumbleupon.com",
+    "joinedAt": "06/01/2024",
+    "cart": [],
+    "monthly_spend": [],
+    "purchasesPerMonth": []
+  },
+  {
+    "id": 37,
+    "first_name": "Stace",
+    "last_name": "Guilliatt",
+    "email": "sguilliattm@yahoo.com",
+    "joinedAt": "08/01/2024",
     "cart": [],
     "monthly_spend": [],
     "purchasesPerMonth": []
