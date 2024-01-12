@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import UsersData from "../../users.json";
 import {
   DataGrid,
@@ -9,9 +9,11 @@ import {
   GridToolbarFilterButton,
   GridToolbarQuickFilter,
 } from "@mui/x-data-grid";
-import { Button, Grid, IconButton, Stack, Tooltip } from "@mui/material";
+import { Button, Grid, IconButton, Modal, Stack, Tooltip } from "@mui/material";
 import { primary, secondary } from "../../../theme/themeColors";
-import LocalOfferIcon from "@mui/icons-material/LocalOffer";
+import { ModalStyled } from "../../StyledComponents/ModalStyled";
+import SpecialOffersModal from "./SpecialOffersModal";
+import CampaignOutlinedIcon from "@mui/icons-material/CampaignOutlined";
 
 type Props = {};
 
@@ -33,6 +35,28 @@ interface User {
 }
 
 const NewUsersTable = (props: Props) => {
+  const [open, setOpen] = useState(false);
+  const [openForAll, setOpenForAll] = useState(false);
+  const [name, setName] = useState<string>("");
+  const [surname, setSurname] = useState<string>("");
+
+  const handleOpen = () => setOpen(true);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleOpenForAll = () => setOpenForAll(true);
+
+  const handleCloseForAll = () => {
+    setOpenForAll(false);
+  };
+
+  const handleSpecialOfferClick = (row: any) => {
+    setName(row?.firstName);
+    setSurname(row?.lastName);
+  };
+
   const getRecentUsers = (usersData: User[]) => {
     const currentDateTime = new Date();
     const oneMonthAgo = new Date(currentDateTime);
@@ -89,13 +113,13 @@ const NewUsersTable = (props: Props) => {
         <Tooltip title="Offer a special opportunity" placement="top">
           <IconButton
             aria-label="offer-opp"
-            // onClick={() => {
-            //   handleOfferOppClick(params.row);
+            onClick={() => {
+              handleSpecialOfferClick(params.row);
 
-            //   handleOpen();
-            // }}
+              handleOpen();
+            }}
           >
-            <LocalOfferIcon sx={{ color: primary.main }} />
+            <CampaignOutlinedIcon sx={{ color: primary.main }} />
           </IconButton>
         </Tooltip>
       ),
@@ -133,11 +157,11 @@ const NewUsersTable = (props: Props) => {
               height: 30,
               width: 300,
             }}
-            // onClick={() => {
-            //   handleOpenForAll();
-            // }}
+            onClick={() => {
+              handleOpenForAll();
+            }}
           >
-            Reward All Loyal Users
+            Offer for All Newcomers
           </Button>
         </Stack>
       </GridToolbarContainer>
@@ -183,36 +207,27 @@ const NewUsersTable = (props: Props) => {
           />
         </Grid>
       </Grid>
-      {/* <Modal
-      open={open}
-      onClose={handleClose}
-      aria-labelledby="modal-location-report"
-      aria-describedby="modal-location-report"
-    >
-      <ModalStyled>
-        <OfferOpportunityModal
-          username={name}
-          userSurname={surname}
-          averages={averages}
-          handleClose={handleClose}
-          handleClickSnackbar={handleClickSnackbar}
-        />
-      </ModalStyled>
-    </Modal>
-    <Modal
-      open={openForAll}
-      onClose={handleCloseForAll}
-      aria-labelledby="modal-offer"
-      aria-describedby="modal-offer"
-    >
-      <ModalStyled>
-        <OfferOpportunityModal
-          handleClose={handleCloseForAll}
-          handleClickSnackbar={handleClickSnackbar}
-        />
-      </ModalStyled>
-    </Modal>
-    <Box sx={{ width: 500 }}>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-location-report"
+        aria-describedby="modal-location-report"
+      >
+        <ModalStyled>
+          <SpecialOffersModal userSurname={surname} username={name} />
+        </ModalStyled>
+      </Modal>
+      <Modal
+        open={openForAll}
+        onClose={handleCloseForAll}
+        aria-labelledby="modal-offer"
+        aria-describedby="modal-offer"
+      >
+        <ModalStyled>
+          <SpecialOffersModal />
+        </ModalStyled>
+      </Modal>
+      {/* <Box sx={{ width: 500 }}>
       <Snackbar
         anchorOrigin={{ vertical, horizontal }}
         autoHideDuration={4000}
