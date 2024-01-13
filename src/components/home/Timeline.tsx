@@ -7,7 +7,7 @@ const Timeline = (props: Props) => {
   const navigate = useNavigate();
 
   const handleClickExplore = () => {
-    navigate("/deneme");
+    navigate("/predictionexcel");
   };
   return (
     <section>
@@ -58,7 +58,7 @@ const Timeline = (props: Props) => {
                       Get rid of overthinking
                     </h4>
                     <p className="text-sm md:text-base leading-snug text-gray-700 text-opacity-100 font-medium lg:text-justify italic">
-                      Use our Potential Sales Excel feature and free yourself
+                      Use our Potential Sales Excel operation and free yourself
                       from overthinking. Let the system handle it; you just set
                       yourself up for the future.
                     </p>
@@ -71,15 +71,15 @@ const Timeline = (props: Props) => {
                       className="mb-3 text-base font-medium italic"
                       style={{ color: primary.main }}
                     >
-                      predict the future
+                      save yourself the hassle
                     </p>
                     <h4 className="mb-3 font-bold text-lg md:text-2xl italic">
-                      Get rid of overthinking
+                      Easily review your sales
                     </h4>
                     <p className="text-sm md:text-base leading-snug text-gray-700 text-opacity-100 font-medium lg:text-justify italic">
-                      Use our Potential Sales Excel feature and free yourself
-                      from overthinking. Let the system handle it; you just set
-                      yourself up for the future.
+                      Use our Declarative Charts operation and see your
+                      company's sales with any kind of graph you want. Analyze
+                      and take action on your products sales.
                     </p>
                   </div>
                 </div>
@@ -90,15 +90,15 @@ const Timeline = (props: Props) => {
                       className="mb-3 text-base font-medium italic"
                       style={{ color: primary.main }}
                     >
-                      predict the future
+                      persuade to buy
                     </p>
                     <h4 className="mb-3 font-bold text-lg md:text-2xl italic">
-                      Get rid of overthinking
+                      Multiply your sales with a click
                     </h4>
                     <p className="text-sm md:text-base leading-snug text-gray-700 text-opacity-100 font-medium lg:text-justify italic">
-                      Use our Potential Sales Excel feature and free yourself
-                      from overthinking. Let the system handle it; you just set
-                      yourself up for the future.
+                      Use our Define Campaign operation and encourage the user
+                      who added one of your products to their cart to buy
+                      another product.
                     </p>
                   </div>
                 </div>
@@ -111,15 +111,56 @@ const Timeline = (props: Props) => {
                       className="mb-3 text-base font-medium italic"
                       style={{ color: primary.main }}
                     >
-                      predict the future
+                      keep them in company
                     </p>
                     <h4 className="mb-3 font-bold text-lg md:text-2xl italic">
-                      Get rid of overthinking
+                      Reward the loyals
                     </h4>
                     <p className="text-sm md:text-base leading-snug text-gray-700 text-opacity-100 font-medium lg:text-justify italic">
-                      Use our Potential Sales Excel feature and free yourself
-                      from overthinking. Let the system handle it; you just set
-                      yourself up for the future.
+                      Use our Reward Loyal Ones operation and reward users
+                      identified as loyal to your company with campaigns. Keep
+                      them loyal to your products and keep them happy.
+                    </p>
+                  </div>
+                </div>
+                <div className="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                  <div className="order-1 w-5/12"></div>
+                  <div className="order-1 w-5/12 px-1 py-4 text-right">
+                    <p
+                      className="mb-3 text-base font-medium italic"
+                      style={{ color: primary.main }}
+                    >
+                      effective communication
+                    </p>
+                    <h4 className="mb-3 font-bold text-lg md:text-2xl italic">
+                      Win back the reactive ones
+                    </h4>
+                    <p className="text-sm md:text-base leading-snug text-gray-700 text-opacity-100 font-medium lg:text-justify italic">
+                      It is very important to evaluate users' feedback and
+                      satisfy them. Use our Produce a Solution operation and
+                      analyze users' feedback, communicate with them and win
+                      them back by offering a special campaign.
+                    </p>
+                  </div>
+                </div>
+                <div className="mb-8 flex justify-between items-center w-full right-timeline">
+                  <div className="order-1 w-5/12"></div>
+
+                  <div className="order-1  w-5/12 px-1 py-4">
+                    <p
+                      className="mb-3 text-base font-medium italic"
+                      style={{ color: primary.main }}
+                    >
+                      don't forget the newcomers
+                    </p>
+                    <h4 className="mb-3 font-bold text-lg md:text-2xl italic">
+                      Connect from very beginning
+                    </h4>
+                    <p className="text-sm md:text-base leading-snug text-gray-700 text-opacity-100 font-medium lg:text-justify italic">
+                      Identify first-time shoppers, offer them limited-time
+                      offers and hook them from the start. With our Special
+                      Offers For Newcomers operation, it's easy to do. Win love
+                      right from the start.
                     </p>
                   </div>
                 </div>

@@ -148,7 +148,7 @@ const DefineCampaignWithCart = ({
               vertical: "top",
               horizontal: "center",
             })}
-            disabled={products.length === 0}
+            disabled={products.length === 0 || campaignAmount === ""}
           >
             Define Campaign
           </Button>

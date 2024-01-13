@@ -1127,5 +1127,183 @@
     "cart": [],
     "monthly_spend": [],
     "purchasesPerMonth": []
+  },
+  {
+    "id": 38,
+    "first_name": "Geralt",
+    "last_name": "Rivia",
+    "email": "GeraltRivia@mail.com",
+    "joinedAt": "14/07/2023",
+    "cart": ["Samsung Galaxy Watch"],
+    "monthly_spend": [
+      {
+        "2023": {
+          "Jan": 0,
+          "Feb": 0,
+          "Mar": 0,
+          "Apr": 50660,
+          "May": 60400,
+          "Jun": 22450,
+          "Jul": 45000,
+          "Aug": 0,
+          "Sep": 0,
+          "Oct": 0,
+          "Nov": 0,
+          "Dec": 250
+        }
+      }
+    ],
+    "purchasesPerMonth": [
+      {
+        "2023": {
+          "Jan": 0,
+          "Feb": 2,
+          "Mar": 2,
+          "Apr": 2,
+          "May": 3,
+          "Jun": 4,
+          "Jul": 5,
+          "Aug": 0,
+          "Sep": 0,
+          "Oct": 0,
+          "Nov": 0,
+          "Dec": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "first_name": "Triss",
+    "last_name": "Merigold",
+    "email": "merigold12@mail.com",
+    "joinedAt": "14/07/2023",
+    "cart": ["Samsung Galaxy Watch"],
+    "monthly_spend": [
+      {
+        "2023": {
+          "Jan": 0,
+          "Feb": 0,
+          "Mar": 0,
+          "Apr": 50660,
+          "May": 60800,
+          "Jun": 22850,
+          "Jul": 45670,
+          "Aug": 0,
+          "Sep": 0,
+          "Oct": 0,
+          "Nov": 0,
+          "Dec": 250
+        }
+      }
+    ],
+    "purchasesPerMonth": [
+      {
+        "2023": {
+          "Jan": 0,
+          "Feb": 5,
+          "Mar": 2,
+          "Apr": 2,
+          "May": 3,
+          "Jun": 4,
+          "Jul": 5,
+          "Aug": 0,
+          "Sep": 0,
+          "Oct": 0,
+          "Nov": 0,
+          "Dec": 1
+        }
+      }
+    ]
+  },
+
+  {
+    "id": 40,
+    "first_name": "Yennefer",
+    "last_name": "Vengerberg",
+    "email": "vyenberg@mail.com",
+    "joinedAt": "14/07/2023",
+    "cart": ["Samsung Galaxy Watch"],
+    "monthly_spend": [
+      {
+        "2023": {
+          "Jan": 0,
+          "Feb": 0,
+          "Mar": 0,
+          "Apr": 54660,
+          "May": 62400,
+          "Jun": 22450,
+          "Jul": 45000,
+          "Aug": 0,
+          "Sep": 0,
+          "Oct": 0,
+          "Nov": 0,
+          "Dec": 2540
+        }
+      }
+    ],
+    "purchasesPerMonth": [
+      {
+        "2023": {
+          "Jan": 0,
+          "Feb": 2,
+          "Mar": 2,
+          "Apr": 2,
+          "May": 5,
+          "Jun": 4,
+          "Jul": 5,
+          "Aug": 0,
+          "Sep": 0,
+          "Oct": 0,
+          "Nov": 0,
+          "Dec": 1
+        }
+      }
+    ]
+  },
+
+  {
+    "id": 41,
+    "first_name": "Zoltan",
+    "last_name": "Chivay",
+    "email": "chivayyzzz@mail.com",
+    "joinedAt": "14/07/2023",
+    "cart": ["Samsung Galaxy Watch"],
+    "monthly_spend": [
+      {
+        "2023": {
+          "Jan": 0,
+          "Feb": 0,
+          "Mar": 29500,
+          "Apr": 50660,
+          "May": 60400,
+          "Jun": 22450,
+          "Jul": 24500,
+          "Aug": 0,
+          "Sep": 0,
+          "Oct": 0,
+          "Nov": 28500,
+          "Dec": 250
+        }
+      }
+    ],
+    "purchasesPerMonth": [
+      {
+        "2023": {
+          "Jan": 0,
+          "Feb": 2,
+          "Mar": 2,
+          "Apr": 2,
+          "May": 4,
+          "Jun": 4,
+          "Jul": 5,
+          "Aug": 0,
+          "Sep": 5,
+          "Oct": 0,
+          "Nov": 0,
+          "Dec": 1
+        }
+      }
+    ]
   }
 ]

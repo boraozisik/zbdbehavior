@@ -131,7 +131,7 @@ const SendMailModal = ({
             vertical: "top",
             horizontal: "center",
           })}
-          disabled={message === ""}
+          disabled={message === "" || sendEmail === "" || about === ""}
         >
           Send Mail
         </Button>

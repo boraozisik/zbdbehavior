@@ -9,7 +9,18 @@ import {
   GridToolbarFilterButton,
   GridToolbarQuickFilter,
 } from "@mui/x-data-grid";
-import { Button, Grid, IconButton, Modal, Stack, Tooltip } from "@mui/material";
+import {
+  Alert,
+  Box,
+  Button,
+  Grid,
+  IconButton,
+  Modal,
+  Snackbar,
+  SnackbarOrigin,
+  Stack,
+  Tooltip,
+} from "@mui/material";
 import { primary, secondary } from "../../../theme/themeColors";
 import { ModalStyled } from "../../StyledComponents/ModalStyled";
 import SpecialOffersModal from "./SpecialOffersModal";
@@ -21,6 +32,10 @@ interface MonthlySpend {
   [key: string]: {
     [key: string]: number;
   };
+}
+
+interface State extends SnackbarOrigin {
+  openBar: boolean;
 }
 
 interface User {
@@ -39,6 +54,21 @@ const NewUsersTable = (props: Props) => {
   const [openForAll, setOpenForAll] = useState(false);
   const [name, setName] = useState<string>("");
   const [surname, setSurname] = useState<string>("");
+  const [state, setState] = useState<State>({
+    openBar: false,
+    vertical: "top",
+    horizontal: "center",
+  });
+
+  const { vertical, horizontal, openBar } = state;
+
+  const handleClickSnackbar = (newState: SnackbarOrigin) => () => {
+    setState({ ...newState, openBar: true });
+  };
+
+  const handleCloseSnackbar = () => {
+    setState({ ...state, openBar: false });
+  };
 
   const handleOpen = () => setOpen(true);
 
@@ -214,7 +244,12 @@ const NewUsersTable = (props: Props) => {
         aria-describedby="modal-location-report"
       >
         <ModalStyled>
-          <SpecialOffersModal userSurname={surname} username={name} />
+          <SpecialOffersModal
+            userSurname={surname}
+            username={name}
+            handleClose={handleClose}
+            handleClickSnackbar={handleClickSnackbar}
+          />
         </ModalStyled>
       </Modal>
       <Modal
@@ -224,22 +259,25 @@ const NewUsersTable = (props: Props) => {
         aria-describedby="modal-offer"
       >
         <ModalStyled>
-          <SpecialOffersModal />
+          <SpecialOffersModal
+            handleClose={handleCloseForAll}
+            handleClickSnackbar={handleClickSnackbar}
+          />
         </ModalStyled>
       </Modal>
-      {/* <Box sx={{ width: 500 }}>
-      <Snackbar
-        anchorOrigin={{ vertical, horizontal }}
-        autoHideDuration={4000}
-        open={openBar}
-        onClose={handleCloseSnackbar}
-        key={vertical + horizontal}
-      >
-        <Alert severity="success" sx={{ width: "100%" }}>
-          Successfully offered a special opportunity !
-        </Alert>
-      </Snackbar>
-    </Box> */}
+      <Box sx={{ width: 500 }}>
+        <Snackbar
+          anchorOrigin={{ vertical, horizontal }}
+          autoHideDuration={4000}
+          open={openBar}
+          onClose={handleCloseSnackbar}
+          key={vertical + horizontal}
+        >
+          <Alert severity="success" sx={{ width: "100%" }}>
+            Offer and Message sent successfully !
+          </Alert>
+        </Snackbar>
+      </Box>
     </>
   );
 };

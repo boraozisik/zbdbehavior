@@ -198,7 +198,11 @@ const OfferOpportunityModal = ({
               vertical: "top",
               horizontal: "center",
             })}
-            disabled={offer === "" || discount === ""}
+            disabled={
+              offer === "" ||
+              discount === "" ||
+              ((offer === "3" || offer === "4") && products.length === 0)
+            }
           >
             Offer Opportunity
           </Button>
